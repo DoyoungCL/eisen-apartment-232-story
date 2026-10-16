@@ -92,24 +92,24 @@
       {place:'玄关',title:'一张没有署名的便条',text:'玄关软木板上多了一张字迹圆圆的便条：“最近辛苦啦，冰箱里有布丁。”没有署名。你回头时，智羽正抱着她的小熊玩偶从房间出来，视线在便条和你之间停了一下。',person:'jiwoo',a:'留一张感谢的小纸条，也问她布丁是哪种口味。',ad:3,aa:2,b:'当作没看见，拿了布丁就走。',bd:-2,ba:-1,replyA:'智羽抱紧小熊，笑着说：“是焦糖口味！谢谢你回纸条，下次我也想试试你喜欢的东西。”',replyB:'智羽看了眼空掉的布丁盒，没有说什么，只把小熊抱得更紧了一点。'}
     ];
     let state=null;let selectedTraits=[];let toastTimer;
-    function freshState(profile){return {profile,likes:Object.fromEntries(cast.map(c=>[c.id,c.initial])),day:1,weekday:1,actions:2,atmosphere:65,fatigue:30,location:'客厅 · 沙发边',room:'待协商',romance:null,intimacy:0,jealousy:0,roomChosen:false,dailyEventPending:false,dailyEvent:null,conversation:null,turn:0,ending:false}}
+    function freshState(profile){return {profile,likes:Object.fromEntries(cast.map(c=>[c.id,c.initial])),day:1,weekday:1,actions:2,atmosphere:65,fatigue:30,location:'客厅 · 沙发边',room:'待协商',romance:null,intimacy:0,jealousy:0,roomChosen:false,dailyEventPending:false,dailyEvent:null,conversation:null,turn:0,ending:null}}
     function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('active',s.id===id));window.scrollTo({top:0,behavior:'smooth'})}
     function setupTraits(){const root=document.getElementById('traitChips');traits.forEach(t=>{const b=document.createElement('button');b.type='button';b.className='chip';b.textContent=t;b.onclick=()=>{if(selectedTraits.includes(t)){selectedTraits=selectedTraits.filter(x=>x!==t);b.classList.remove('selected')}else if(selectedTraits.length<4){selectedTraits.push(t);b.classList.add('selected')}else{notify('性格关键词最多选择 4 个。')}};root.appendChild(b)})}
     setupTraits();
-    document.getElementById('customTrait').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();const v=e.target.value.trim();if(v&&selectedTraits.length<4&&!selectedTraits.includes(v)){selectedTraits.push(v);const b=document.createElement('button');b.type='button';b.className='chip selected';b.textContent=v;b.onclick=()=>{selectedTraits=selectedTraits.filter(x=>x!==v);b.remove()};document.getElementById('traitChips').appendChild(b);e.target.value=''}else if(selectedTraits.length>=4)notify('性格关键词最多选择 4 个。')}});
+    document.getElementById('customTrait').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();const v=e.target.value.trim();if(v&&selectedTraits.length<4&&!selectedTraits.includes(v)){selectedTraits.push(v);const b=document.createElement('button');b.type='button';b.className='chip selected custom-trait';b.textContent=v;b.onclick=()=>{selectedTraits=selectedTraits.filter(x=>x!==v);b.remove()};document.getElementById('traitChips').appendChild(b);e.target.value=''}else if(selectedTraits.length>=4)notify('性格关键词最多选择 4 个。')}});
     document.getElementById('profileForm').addEventListener('submit',e=>{e.preventDefault();const data=new FormData(e.currentTarget);if(selectedTraits.length<2){document.getElementById('formError').textContent='请至少选择两个性格关键词。';return}const profile={name:data.get('name').trim(),age:data.get('age'),job:data.get('job').trim(),mbti:data.get('mbti').trim()||'未测定',traits:[...selectedTraits],schedule:document.getElementById('schedule').value,cooking:document.getElementById('cooking').value,tidy:document.getElementById('tidy').value,social:document.getElementById('social').value,reason:document.getElementById('reason').value.trim()||'待揭晓'};state=freshState(profile);save();renderOpening();showScreen('opening')});
     function renderOpening(){const p=state.profile;document.getElementById('openingCopy').textContent=`首尔的九月还没有要凉下来的意思。傍晚六点，你站在延南洞一栋旧居民楼的二楼，手里捏着一把新钥匙。门里传来一阵笑声，接着有人说了句什么，笑声又响起来。\n\n门开了。一个穿灰色卫衣的女生先迎上来，顺手帮你把行李箱拉进玄关。客厅里，海媛端着冰美式朝你点头；仑娥从沙发边抬眼看了看你；智羽抱着棕色小熊坐在地毯上；真率靠在厨房岛台边，笑得很直接。走廊里有人探出头来，是刚从甜品店回来的圭真。\n\n“我是朴珍，”最先迎接你的女生说，“欢迎来 232 室。你路上还顺利吗？”\n\n七个人，客厅有点挤。你把手从行李箱拉杆上松开。`;document.getElementById('profileAside').innerHTML=`<strong>新住客</strong><br>${esc(p.name)} · ${esc(p.age)} 岁<br>${esc(p.job)}<br>性格：${p.traits.map(esc).join(' / ')}<br>作息：${esc(p.schedule)}<br>搬来原因：${esc(p.reason)}`;const opts=[['“大家好，我叫'+p.name+'，请多关照。”','礼貌地做自我介绍',()=>{changeLike('lily',2);changeLike('haewon',1);state.atmosphere++;goHousing('客厅里有人跟着报上名字，海媛记下了你的称呼。')}],['“房间……现在是怎么安排的？”','先把行李安顿下来',()=>{changeLike('haewon',2);goHousing('海媛把房间表翻到空床位那一页，其他人也围了过来。')}],['先不说话，观察一下大家。','记住每个人的样子',()=>{changeLike('sullyoon',1);changeLike('jiwoo',1);state.fatigue++;goHousing('你先听大家把话说完。仑娥注意到你在看她的画册，智羽把怀里的小熊抱紧了一点。')}],['“我带了点路上的零食，大家要吃吗？”','把第一份分享放在桌上',()=>{changeLike('lily',2);changeLike('kyujin',2);state.atmosphere+=2;goHousing('零食袋很快被放到餐桌中央，紧张感松了一点。')}]];document.getElementById('openingChoices').innerHTML='';opts.forEach(([label,hint,fn])=>{const b=document.createElement('button');b.className='choice';b.innerHTML=`<span>${esc(label)}</span><small>${esc(hint)}</small>`;b.onclick=()=>{fn();save();renderRoomOptions()};document.getElementById('openingChoices').appendChild(b)})}
     let housingIntro='';function goHousing(text){housingIntro=text;showScreen('housing')}
     function renderRoomOptions(){const root=document.getElementById('roomOptions');root.innerHTML='';roomChoices.forEach(o=>{const b=document.createElement('button');b.className='room-option';b.innerHTML=`<strong>${esc(o.title)}</strong><span>${esc(o.desc)}</span><em>确认这个安排 ↗</em>`;b.onclick=()=>chooseRoom(o);root.appendChild(b)});if(housingIntro)document.getElementById('roomNote').textContent=housingIntro+' 选房后，你们就开始第一周的共同生活。'}
     function chooseRoom(option){Object.entries(option.effects).forEach(([id,n])=>changeLike(id,n));state.room=option.room;state.roomChosen=true;state.atmosphere=clamp(state.atmosphere+1,0,100);save();renderGame();showScreen('game');notify('房间安排已记下。第一天开始了。');triggerDailyEvent()}
-    function changeLike(id,delta){const c=cast.find(x=>x.id===id);state.likes[id]=clamp((state.likes[id]||0)+delta,0,c.cap)}
+    function changeLike(id,delta){const c=cast.find(x=>x.id===id);state.likes[id]=clamp((state.likes[id]||0)+delta,-10,c.cap)}
     function clamp(n,min,max){return Math.max(min,Math.min(max,n))}function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
     function save(){if(state)try{localStorage.setItem('eisen232-save',JSON.stringify(state))}catch(e){}}
     function notify(text){const t=document.getElementById('toast');t.textContent=text;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),2200)}
     function renderGame(){if(!state)return;const activity=state.conversation?'正在和室友对话':state.dailyEventPending?'先回应今天的随机日常':state.actions?'还有 '+state.actions+' 次行动':'今天的行动已用完';document.getElementById('dayLine').textContent=`第 ${state.day} 天 · ${['星期日','星期一','星期二','星期三','星期四','星期五','星期六'][state.weekday]} · ${activity}`;document.getElementById('locationLabel').textContent=state.location;document.getElementById('relationshipList').innerHTML=cast.map(c=>`<div class="meter-row"><div class="meter-top"><button onclick="openChat('${c.id}')" ${state.dailyEventPending?'disabled':''}>${c.name}</button><span>${state.likes[c.id]}</span></div><div class="meter-track"><div class="meter-fill" style="width:${state.likes[c.id]}%;background:${c.color}"></div></div></div>`).join('');document.getElementById('statusList').innerHTML=`<div class="stat-row"><span>公寓氛围</span><div class="stat-track"><i style="width:${state.atmosphere}%"></i></div><b>${state.atmosphere}</b></div><div class="stat-row"><span>疲劳值</span><div class="stat-track"><i style="width:${state.fatigue}%;background:#d8775a"></i></div><b>${state.fatigue}</b></div>${state.romance?`<div class="stat-row"><span>亲密度</span><div class="stat-track"><i style="width:${state.intimacy}%;background:#d8775a"></i></div><b>${state.intimacy}</b></div><div class="stat-row"><span>嫉妒值</span><b>${state.jealousy}</b></div>`:''}`;document.getElementById('romanceLabel').textContent=state.romance?`恋爱中 · ${cast.find(c=>c.id===state.romance)?.alias}`:'目前单身';document.getElementById('playerCard').innerHTML=`<strong>${esc(state.profile.name)}</strong> · ${esc(state.profile.age)} 岁 · ${esc(state.profile.job)}<br>房间：${esc(state.room)}<br>性格：${state.profile.traits.map(esc).join(' / ')}`;document.getElementById('chatButton').disabled=state.dailyEventPending;document.getElementById('endDayBtn').disabled=state.actions>0||state.dailyEventPending;document.getElementById('endingNote').hidden=!state.ending}
     function renderGame(){if(!state)return;const activity=state.conversation?'正在和室友对话':state.dailyEventPending?'先回应今天的随机日常':state.actions?'还有 '+state.actions+' 次行动':'今天的行动已用完';document.getElementById('dayLine').textContent=`第 ${state.day} 天 · ${['星期日','星期一','星期二','星期三','星期四','星期五','星期六'][state.weekday]} · ${activity}`;document.getElementById('locationLabel').textContent=state.location;document.getElementById('relationshipList').innerHTML=cast.map(c=>`<div class="meter-row"><div class="meter-top"><button onclick="openChat('${c.id}')" ${state.dailyEventPending?'disabled':''}>${c.name}</button><span>${state.likes[c.id]}</span></div><div class="meter-track"><div class="meter-fill" style="width:${state.likes[c.id]}%;background:${c.color}"></div></div></div>`).join('');document.getElementById('statusList').innerHTML=`<div class="stat-row"><span>公寓氛围</span><div class="stat-track"><i style="width:${state.atmosphere}%"></i></div><b>${state.atmosphere}</b></div><div class="stat-row"><span>疲劳值</span><div class="stat-track"><i style="width:${state.fatigue}%;background:#d8775a"></i></div><b>${state.fatigue}</b></div>${state.romance?`<div class="stat-row"><span>亲密度</span><div class="stat-track"><i style="width:${state.intimacy}%;background:#d8775a"></i></div><b>${state.intimacy}</b></div><div class="stat-row"><span>嫉妒值</span><b>${state.jealousy}</b></div>`:''}`;document.getElementById('romanceLabel').textContent=state.romance?`恋爱中 · ${cast.find(c=>c.id===state.romance)?.alias}`:'目前单身';document.getElementById('playerCard').innerHTML=`<strong>${esc(state.profile.name)}</strong> · ${esc(state.profile.age)} 岁 · ${esc(state.profile.job)}<br>房间：${esc(state.room)}<br>性格：${state.profile.traits.map(esc).join(' / ')}`;document.getElementById('chatButton').disabled=state.dailyEventPending;document.getElementById('endDayBtn').disabled=state.actions>0||state.dailyEventPending;document.getElementById('endingNote').hidden=!state.ending}
     function setEvent(title,text,place,kicker='ROOM 232 · EVERYDAY',speakerId=null) {document.querySelector('#eventPanel .event-title').textContent=title;document.getElementById('eventCopy').textContent=text;document.querySelector('#eventPanel .event-kicker').textContent=kicker;let speaker=document.getElementById('dialogueSpeaker');if(!speaker){speaker=document.createElement('div');speaker.id='dialogueSpeaker';speaker.className='dialogue-speaker';document.getElementById('eventCopy').before(speaker)}const person=cast.find(c=>c.id===speakerId);speaker.hidden=!person;if(person)speaker.innerHTML=`<img src="${person.image}" alt="${person.alias}"><div><small>正在对话</small><strong>${person.alias}</strong></div>`;state.location=place;renderGame()}
-    function useAction(){if(state.actions<=0){notify('今天的行动已经用完，先结束这一天吧。');return false}state.actions--;state.turn++;state.fatigue=clamp(state.fatigue+3,0,100);return true}
+    function useAction(){if(state.ending){notify('故事已经迎来结局。');return false}if(state.actions<=0){notify('今天的行动已经用完，先结束这一天吧。');return false}state.actions--;state.turn++;state.fatigue=clamp(state.fatigue+3,0,100);return true}
     function triggerDailyEvent(){if(!useAction())return;state.dailyEvent=eventBank[Math.floor(Math.random()*eventBank.length)];state.dailyEventPending=true;save();renderDailyEvent(state.dailyEvent)}
     function renderDailyEvent(event){setEvent(event.title,event.text,event.place,`DAY ${String(state.day).padStart(2,'0')} / EVERYDAY EVENT`,event.person);const root=document.getElementById('eventChoices');root.innerHTML='';[[event.a,event.ad,event.aa,event.replyA],[event.b,event.bd,event.ba,event.replyB]].forEach(([label,delta,atmo,reply],index)=>{const button=document.createElement('button');button.className='choice';button.innerHTML=`<span>${esc(label)}</span>`;button.addEventListener('click',()=>resolveDailyEvent(event,delta,atmo,index===0?'你认真回应了这件小事。':'这次的回应让气氛稍微变得不同。',reply));root.appendChild(button)});const form=document.createElement('form');form.className='custom-reply';form.innerHTML='<label for="dailyEventReply">或者自己输入回答</label><textarea id="dailyEventReply" name="message" maxlength="240" placeholder="说说你想对她讲的话..." required></textarea><button class="action-button accent" type="submit">发送回答</button>';form.addEventListener('submit',submitDailyEventReplyFor(event));root.appendChild(form);save();renderGame()}
     function resolveDailyEvent(event,delta,atmo,description,reply,message=''){if(!state.dailyEventPending)return;const person=cast.find(c=>c.id===event.person);changeLike(event.person,delta);state.atmosphere=clamp(state.atmosphere+atmo,0,100);state.dailyEventPending=false;state.dailyEvent=null;document.getElementById('eventCopy').textContent+=`\n\n你：${message?`「${message}」`:'说出了自己的想法。'}\n${message?`${person.alias}：「${buildCustomReply(event.person,message,delta)}」`:reply}`;document.getElementById('eventChoices').innerHTML=`<div class="notice">${description} ${person.alias} 对你的好感 ${delta>=0?'+'+delta:delta}，公寓氛围 ${atmo>=0?'+'+atmo:atmo}。</div>`;save();renderGame()}
@@ -130,7 +130,7 @@
     function endDay(){if(state.actions>0||state.dailyEventPending)return;state.fatigue=clamp(state.fatigue-8,0,100);state.day++;state.weekday=(state.weekday+1)%7;state.actions=2;state.atmosphere=clamp(state.atmosphere+(state.atmosphere<50?1:0),0,100);state.location='厨房 · 早餐桌';state.dailyEventPending=false;state.ending=state.day>=7;document.getElementById('endingNote').hidden=!state.ending;if(state.ending)document.getElementById('endingNote').textContent='第一周结束了。故事还会继续：关系、习惯和下一次选择，都留在这间公寓里。';save();renderGame();notify(`第 ${state.day} 天，早上好。`);triggerDailyEvent()}
     function showModal(html){document.getElementById('modal').innerHTML=html;document.getElementById('modalBackdrop').classList.add('open')}function closeModal(){document.getElementById('modalBackdrop').classList.remove('open')}
     window.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
-    (function resume(){try{const saved=JSON.parse(localStorage.getItem('eisen232-save'));if(saved&&saved.profile){state=saved;if(state.roomChosen){renderGame();showScreen('game')}else if(state.profile){renderOpening();showScreen('opening')}}}catch(e){}})();
+    (function resume(){try{const saved=JSON.parse(localStorage.getItem('eisen232-save'));if(saved&&saved.profile){state=saved;if(typeof state.ending!=='object')state.ending=null;if(state.roomChosen){renderGame();showScreen('game')}else if(state.profile){renderOpening();showScreen('opening')}}}catch(e){}})();
   </script>
   <style>
     .custom-reply{display:grid;gap:8px;margin-top:18px;padding-top:14px;border-top:1px solid var(--line)}
@@ -357,9 +357,117 @@
       if(!state)return;
       updateSceneVisual();
       addResidentPortraits();
+      document.querySelectorAll('#relationshipList .meter-row').forEach((row,index)=>{
+        const score=state.likes[cast[index].id]||0;
+        row.querySelector('.meter-fill').style.width=`${clamp(score,0,100)}%`;
+      });
+      if(state.ending){
+        document.getElementById('dayLine').textContent=`第 ${state.day} 天 · 故事已结束`;
+        document.getElementById('endingNote').hidden=false;
+        document.getElementById('endingNote').textContent=`${state.ending.title}：${state.ending.text}`;
+        document.getElementById('chatButton').disabled=true;
+        document.getElementById('endDayBtn').disabled=true;
+        document.querySelectorAll('#relationshipList button').forEach(button=>button.disabled=true);
+      }
+    };
+    function renderEnding(){
+      const note=document.getElementById('endingNote');
+      if(!state||!state.ending)return;
+      document.getElementById('modal').classList.remove('open');
+      document.getElementById('eventPanel').hidden=false;
+      document.querySelector('#eventPanel .event-title').textContent=state.ending.title;
+      document.getElementById('eventCopy').textContent=state.ending.text;
+      document.querySelector('#eventPanel .event-kicker').textContent=state.ending.type.startsWith('year-')?'ROOM 232 · ONE YEAR LATER':'ROOM 232 · ENDING';
+      document.getElementById('eventChoices').replaceChildren();
+      const restart=document.createElement('button');
+      restart.className='primary-btn';
+      restart.textContent='重新开始';
+      restart.addEventListener('click',()=>{
+        localStorage.removeItem('eisen232-save');
+        state=null;
+        selectedTraits=[];
+        document.querySelectorAll('#traitChips .custom-trait').forEach(button=>button.remove());
+        document.querySelectorAll('#traitChips .chip').forEach(button=>button.classList.remove('selected'));
+        document.getElementById('profileForm').reset();
+        document.getElementById('customTrait').value='';
+        document.getElementById('formError').textContent='';
+        document.getElementById('eventPanel').hidden=true;
+        showScreen('cover');
+      });
+      document.getElementById('eventChoices').append(restart);
+      if(note){note.hidden=false;note.textContent=`${state.ending.title}：${state.ending.text}`}
+    }
+    function finishGame(ending){
+      if(!state||state.ending)return;
+      state.ending={...ending,day:state.day};
+      state.actions=0;
+      state.dailyEventPending=false;
+      state.dailyEvent=null;
+      state.conversation=null;
+      save();
+      setEvent(state.ending.title,state.ending.text,state.location,'ROOM 232 · ENDING');
+      renderEnding();
+      renderGame();
+    }
+    function relationshipEnding(){
+      if(!state||state.ending||state.conversation||state.dailyEventPending)return false;
+      const failed=cast.find(person=>(state.likes[person.id]??0)<=0);
+      if(!failed)return false;
+      const isRomance=state.romance===failed.id;
+      finishGame({
+        type:'relationship',
+        title:isRomance?'关系破裂结局':'室友离开结局',
+        text:isRomance
+          ?`你们之间的好感已经降到了 ${state.likes[failed.id]}。一次次没有被接住的话，最终变成了无法弥合的距离。${failed.alias}决定离开这段关系。公寓恢复了安静，但你知道，有些话已经来不及说了。`
+          :`${failed.alias}对你的好感降到了 ${state.likes[failed.id]}，最终决定离开 232 室。空下来的房间提醒着你：相处中的每一次回应，都可能改变彼此的距离。`
+      });
+      return true;
+    }
+    function yearEnding(){
+      const lover=cast.find(person=>person.id===state.romance);
+      const closeFriends=cast.filter(person=>person.id!==state.romance&&(state.likes[person.id]||0)>=55).length;
+      if(lover&&(state.likes[lover.id]||0)>=60){
+        return {type:'year-romance',title:'周年结局 · 仍然并肩',text:`在 232 室住满一年的这天，你和${lover.alias}一起回顾了这一年的日常。那些争执、照料与认真听完的话，让你们成为彼此更坚定的选择。离开公寓的计划暂时搁置了，因为你们已经把这里过成了共同的家。`};
+      }
+      if(closeFriends>=2||(cast.filter(person=>(state.likes[person.id]||0)>=55).length>=3)){
+        return {type:'year-friends',title:'周年结局 · 共同的家',text:'住满一年后，232 室依然热闹。你们未必把每段关系都说成爱情，却在一次次回应与陪伴里，成了彼此可以依靠的人。新的租约摆在桌上，大家几乎同时伸手签下了名字。'};
+      }
+      return {type:'year-farewell',title:'周年结局 · 各自的下一站',text:'一年租期走到了尽头。你和室友们认真道别，也承认有些关系没有变成期待中的模样。收拾行李时，你带走了这一年学会的事：倾听、表达，以及在错过之前好好回应。232 室迎来了新的住客，而你的故事也翻到了下一页。'};
+    }
+    const continueConversationBeforeEndings=continueConversation;
+    continueConversation=function(...args){
+      const result=continueConversationBeforeEndings(...args);
+      if(state&&!state.conversation)relationshipEnding();
+      return result;
+    };
+    const endConversationBeforeEndings=endConversation;
+    endConversation=function(...args){
+      const result=endConversationBeforeEndings(...args);
+      relationshipEnding();
+      return result;
+    };
+    endDay=function(){
+      if(!state||state.ending)return;
+      if(state.actions>0||state.dailyEventPending||state.conversation){notify('请先完成今天的行动与对话。');return}
+      if(relationshipEnding())return;
+      state.day++;
+      state.weekday=(state.weekday+1)%7;
+      state.actions=2;
+      state.fatigue=clamp(state.fatigue-15,0,100);
+      state.atmosphere=clamp(state.atmosphere+2,0,100);
+      state.location='厨房 · 早餐桌';
+      if(state.day>=365){
+        finishGame(yearEnding());
+        return;
+      }
+      save();
+      renderGame();
+      notify('新的一天开始了。');
+      triggerDailyEvent();
     };
     const openChatWithPortraits=openChat;
     openChat=function(id){
+      if(state&&state.ending){notify('故事已经迎来结局。');return}
       if(id&&state&&state.roomChosen){
         if(state.dailyEventPending){notify('先回应今天的随机日常，再继续其他互动。');return}
         const destination=sceneDestinations[conversationDestinations[id]];
@@ -380,6 +488,7 @@
       header.prepend(portrait);
     };
     if(state)renderGame();
+    if(state&&state.ending)renderEnding();
     if(state&&state.roomChosen){
       if(state.conversation)renderConversation(state.conversation);
       else if(state.dailyEventPending&&state.dailyEvent)renderDailyEvent(state.dailyEvent);
