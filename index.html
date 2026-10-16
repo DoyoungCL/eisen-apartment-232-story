@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4efe5">
+  <title>爱森公寓 232 室</title>
+  <meta name="description" content="走进爱森公寓 232 室，和六位室友展开一段对话式日常故事。你的回答会影响关系，每一次相遇都由你续写。">
+  <meta name="robots" content="index,follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="爱森公寓 232 室｜对话式日常故事">
+  <meta property="og:description" content="和六位室友相遇、聊天，让每一次回答都成为故事的一部分。">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap');
+    :root{--paper:#f4efe5;--ink:#242d28;--muted:#68736a;--line:#d8d4c9;--green:#294f42;--green2:#dce8d9;--coral:#d8775a;--yellow:#edc56f;--white:#fffdf8;--serif:'Noto Serif SC',Georgia,serif;--sans:'DM Sans','Microsoft YaHei',sans-serif}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:14px}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #e8ae70;outline-offset:2px}button:disabled{opacity:.45;cursor:not-allowed}.app{min-height:100vh}.topline{height:42px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;border-bottom:1px solid var(--line);font-size:11px;letter-spacing:1px;color:var(--muted)}.brand{font-weight:700;color:var(--ink);letter-spacing:2px}.cover{min-height:calc(100vh - 42px);display:grid;grid-template-columns:minmax(340px,1.05fr) minmax(320px,.95fr);background:#ece6da}.cover-art{position:relative;min-height:620px;background:linear-gradient(90deg,rgba(25,42,34,.32),rgba(25,42,34,.02)),linear-gradient(0deg,rgba(17,32,27,.43),transparent 62%),url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=85') center/cover}.art-label{position:absolute;left:6vw;bottom:38px;color:white;font-size:11px;letter-spacing:2px}.cover-copy{display:flex;flex-direction:column;justify-content:center;padding:8vw 9vw 8vw 7vw}.eyebrow{color:var(--coral);font-size:11px;letter-spacing:2px;font-weight:700;text-transform:uppercase}.cover h1{font:500 clamp(36px,5vw,68px)/1.23 var(--serif);margin:22px 0 14px;letter-spacing:0}.cover h1 span{display:block;color:var(--green)}.cover-copy p{max-width:410px;line-height:1.9;color:#59645b;margin:4px 0 30px}.meta-line{display:flex;gap:16px;align-items:center;color:var(--muted);font-size:12px;margin-bottom:28px}.meta-line i{width:4px;height:4px;border-radius:50%;background:var(--coral)}.primary{background:var(--green);color:#fff;border:0;padding:15px 22px;min-width:190px;display:flex;align-items:center;justify-content:space-between;transition:background .2s,transform .2s}.primary:hover{background:#1e3d33;transform:translateY(-2px)}.cover-foot{font-size:11px;color:#81867b;margin-top:24px}
+    .screen{display:none}.screen.active{display:block;animation:enter .38s ease both}@keyframes enter{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}.subhead{padding:20px 5vw;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}.subhead-title{font:500 20px var(--serif)}.subhead span{font-size:11px;color:var(--muted);letter-spacing:1px}.form-wrap{max-width:850px;margin:42px auto;padding:0 24px 64px}.form-intro{margin-bottom:30px}.form-intro h2{font:500 32px var(--serif);margin:7px 0}.form-intro p{color:var(--muted);line-height:1.7}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 22px}.field{display:flex;flex-direction:column;gap:8px}.field.wide{grid-column:1/-1}.field label{font-size:12px;font-weight:700}.field label small{font-weight:400;color:var(--muted)}input,select{border:1px solid var(--line);background:var(--white);padding:12px 13px;color:var(--ink);border-radius:0}.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{border:1px solid var(--line);background:var(--white);padding:8px 11px;color:#566157;font-size:12px}.chip.selected{background:var(--green2);border-color:#8ea491;color:var(--green)}.form-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:28px;gap:12px}.quiet-button{background:none;border:0;color:var(--muted);padding:12px 0}.error{color:#b44334;font-size:12px;min-height:18px}
+    .story-shell{max-width:1100px;margin:44px auto;padding:0 24px 70px}.chapter-tag{font-size:11px;letter-spacing:1.5px;color:var(--coral);font-weight:700}.story-title{font:500 35px var(--serif);margin:8px 0 20px}.story-layout{display:grid;grid-template-columns:1.35fr .65fr;gap:32px;align-items:start}.story-card{background:var(--white);padding:32px;border-top:3px solid var(--green);box-shadow:0 10px 30px #26372b0b}.story-copy{font:400 16px/2 var(--serif);color:#39443c;white-space:pre-line}.story-aside{border-left:1px solid var(--line);padding:10px 0 10px 22px;color:var(--muted);font-size:12px;line-height:1.9}.choice-list{display:grid;gap:9px;margin-top:22px}.choice{border:1px solid var(--line);background:transparent;text-align:left;padding:13px 15px;color:var(--ink);display:flex;justify-content:space-between;gap:14px;transition:.2s}.choice:hover{border-color:var(--green);background:#fffdf8}.choice small{color:var(--muted);white-space:nowrap}.choice:disabled{opacity:.5}.notice{padding:10px 13px;background:#e7eee3;border-left:3px solid var(--green);font-size:12px;color:var(--green);line-height:1.6;margin-top:14px}
+    .room-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.room-option{border:1px solid var(--line);background:var(--white);padding:17px;text-align:left;color:var(--ink)}.room-option:hover{border-color:var(--green);transform:translateY(-1px)}.room-option strong{font:500 17px var(--serif);display:block;margin-bottom:7px}.room-option span{font-size:12px;color:var(--muted);line-height:1.7}.room-option em{font-style:normal;font-size:11px;color:var(--coral);display:block;margin-top:10px}
+    .game-shell{max-width:1400px;margin:0 auto;padding:0 3.5vw 50px}.game-head{display:flex;align-items:center;justify-content:space-between;padding:17px 0;border-bottom:1px solid var(--line)}.game-brand{font:600 16px var(--serif)}.game-brand small{font:400 10px var(--sans);color:var(--muted);margin-left:9px;letter-spacing:1px}.dayline{color:var(--muted);font-size:12px}.game-grid{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:28px;padding-top:23px}.main-column{min-width:0}.scene-bar{display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:12px;margin-bottom:14px}.scene-bar strong{color:var(--green);font-size:12px}.room-scene{min-height:235px;position:relative;overflow:hidden;background:linear-gradient(90deg,rgba(26,47,38,.76),rgba(26,47,38,.10)),url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=80') center 54%/cover;color:white;display:flex;align-items:flex-end;padding:25px}.room-scene::after{content:'';position:absolute;inset:auto 0 0;height:60%;background:linear-gradient(0deg,rgba(14,30,24,.52),transparent)}.scene-caption{position:relative;z-index:1}.scene-caption small{letter-spacing:1.5px;font-size:10px}.scene-caption h2{font:500 25px var(--serif);margin:6px 0 0}.story-panel{background:var(--white);padding:23px 25px;margin-top:15px;border:1px solid #e7e1d6}.story-panel .story-copy{font-size:14px;line-height:1.95}.event-kicker{color:var(--coral);font-size:10px;letter-spacing:1.6px;font-weight:700}.event-title{font:500 22px var(--serif);margin:7px 0 10px}.response-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:17px}.response-grid .choice{font-size:12px;line-height:1.65;padding:13px}.action-row{display:flex;gap:9px;align-items:center;margin:15px 0 20px}.action-button{border:1px solid var(--line);background:transparent;padding:9px 13px;color:var(--ink);font-size:12px}.action-button:hover{border-color:var(--green);background:var(--white)}.action-button.accent{color:var(--green);border-color:#aab9aa}.sidebar{border-left:1px solid var(--line);padding-left:22px}.side-section{padding:0 0 19px;margin-bottom:18px;border-bottom:1px solid var(--line)}.side-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;font-weight:700;font-size:12px}.side-heading small{color:var(--muted);font-size:10px;font-weight:400}.meter-row{margin:11px 0}.meter-top{display:flex;justify-content:space-between;align-items:center;font-size:11px;margin-bottom:5px}.meter-top button{background:none;border:0;padding:0;color:var(--ink);font-size:11px}.meter-top button:hover{color:var(--coral)}.meter-track{height:4px;background:#e3e1d8}.meter-fill{height:100%;background:var(--green);transition:width .3s}.meter-fill.coral{background:var(--coral)}.stat-row{display:flex;justify-content:space-between;align-items:center;font-size:11px;margin:10px 0;color:var(--muted)}.stat-row b{color:var(--ink);font-size:12px}.stat-row .stat-track{flex:1;margin:0 10px;height:3px;background:#e3e1d8}.stat-track i{display:block;height:100%;background:var(--coral)}.roster{font-size:11px;color:var(--muted);line-height:1.9}.roster strong{color:var(--ink)}.save-note{font-size:10px;color:#788078;margin-top:8px}.toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);padding:11px 18px;background:var(--ink);color:white;font-size:12px;opacity:0;pointer-events:none;transition:.25s;z-index:20}.toast.show{opacity:1;transform:translate(-50%,0)}.modal-backdrop{position:fixed;inset:0;background:#17241eb8;display:none;align-items:center;justify-content:center;padding:18px;z-index:10}.modal-backdrop.open{display:flex}.modal{background:var(--paper);width:min(520px,100%);padding:27px;border-top:4px solid var(--coral);max-height:90vh;overflow:auto}.modal-head{display:flex;justify-content:space-between;align-items:flex-start}.modal h2{font:500 24px var(--serif);margin:0 0 7px}.modal p{color:var(--muted);font-size:12px;line-height:1.7}.close{border:0;background:none;font-size:21px;color:var(--muted)}.modal-actions{display:flex;justify-content:flex-end;gap:12px;margin-top:22px}.ending{padding:9px 12px;background:#edf0e7;color:var(--green);font-size:11px}
+    @media(max-width:850px){.cover{grid-template-columns:1fr}.cover-art{min-height:42vh}.cover-copy{padding:42px 8vw 48px}.story-layout{grid-template-columns:1fr}.story-aside{border-left:0;border-top:1px solid var(--line);padding:15px 0 0}.game-grid{grid-template-columns:1fr}.sidebar{border-left:0;border-top:1px solid var(--line);padding:20px 0}.game-shell{padding:0 5vw 35px}}
+    @media(max-width:560px){.topline{padding:0 5vw}.cover-art{min-height:35vh}.cover h1{font-size:40px}.form-grid{grid-template-columns:1fr}.field.wide{grid-column:auto}.form-wrap{margin:28px auto}.room-grid,.response-grid{grid-template-columns:1fr}.story-shell{margin:27px auto;padding:0 16px 40px}.story-title{font-size:29px}.story-card{padding:22px}.game-head{align-items:flex-start;gap:8px}.game-brand small{display:block;margin:4px 0 0}.dayline{text-align:right;font-size:11px}.room-scene{min-height:190px}.game-grid{padding-top:16px}.story-panel{padding:19px}.action-row{flex-wrap:wrap}.side-section{padding-bottom:14px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="topline"><div class="brand">YEONNAM / 232</div><div>SEOUL · MAPO-GU · SINCE SEPTEMBER</div></header>
+    <main>
+      <section class="screen active" id="cover">
+        <div class="cover">
+          <div class="cover-art"><div class="art-label">延南洞的一扇窗 · 傍晚 18:06</div></div>
+          <div class="cover-copy"><div class="eyebrow">A shared home, six different lives</div><h1>爱森公寓<span>232 室</span></h1><p>一间公寓，六位室友，还有一个刚刚搬来的人。晚饭、洗碗、错过的消息，以及慢慢熟起来的日子，都从今晚开始。</p><div class="meta-line"><span>日常恋爱模拟</span><i></i><span>第二人称互动叙事</span><i></i><span>可随时保存</span></div><button class="primary" onclick="showScreen('creator')">搬进公寓 <span>↗</span></button><div class="cover-foot">一个关于合租、边界与亲近的故事</div></div>
+        </div>
+      </section>
+      <section class="screen" id="creator">
+        <div class="subhead"><div class="subhead-title">新住客登记</div><span>01 / 02 · 先认识你</span></div>
+        <div class="form-wrap"><div class="form-intro"><div class="eyebrow">ROOMMATE PROFILE</div><h2>把你的生活带进来。</h2><p>有些习惯会被记住。姓名、职业和至少两个性格关键词是必填项。</p></div>
+          <form id="profileForm"><div class="form-grid">
+            <div class="field"><label for="playerName">姓名 <small>必填</small></label><input id="playerName" name="name" maxlength="20" placeholder="你希望大家怎么称呼你" required></div>
+            <div class="field"><label for="playerAge">年龄 <small>必填，建议 22-30 岁</small></label><input id="playerAge" name="age" type="number" min="18" max="60" placeholder="例如：25" required></div>
+            <div class="field"><label for="playerJob">职业 <small>必填</small></label><input id="playerJob" name="job" maxlength="30" placeholder="例如：平面设计师" required></div>
+            <div class="field"><label for="playerMbti">MBTI <small>选填</small></label><input id="playerMbti" name="mbti" maxlength="8" placeholder="例如：INFP"></div>
+            <div class="field wide"><label>性格关键词 <small>必填，至少选择 2 个</small></label><div class="chips" id="traitChips"></div><input id="customTrait" maxlength="12" placeholder="也可以输入自己的关键词，按回车添加"></div>
+            <div class="field"><label for="schedule">作息类型 <small>选填</small></label><select id="schedule"><option value="待发现">暂时不说</option><option>早睡早起</option><option>晚睡晚起</option><option>不规律</option></select></div>
+            <div class="field"><label for="cooking">做饭频率 <small>选填</small></label><select id="cooking"><option value="待发现">暂时不说</option><option>每天</option><option>偶尔</option><option>从不</option></select></div>
+            <div class="field"><label for="tidy">整洁程度 <small>选填</small></label><select id="tidy"><option value="待发现">暂时不说</option><option>洁癖</option><option>正常</option><option>有点乱</option></select></div>
+            <div class="field"><label for="social">社交倾向 <small>选填</small></label><select id="social"><option value="待发现">暂时不说</option><option>喜欢热闹</option><option>喜欢独处</option><option>看情况</option></select></div>
+            <div class="field wide"><label for="reason">搬进来的原因 <small>选填</small></label><input id="reason" maxlength="80" placeholder="工作调动、想换个环境，或者别的什么"></div>
+          </div><div class="error" id="formError"></div><div class="form-bottom"><button class="quiet-button" type="button" onclick="showScreen('cover')">← 回到封面</button><button class="primary" type="submit">确认住客资料 <span>→</span></button></div></form>
+        </div>
+      </section>
+      <section class="screen" id="opening"><div class="subhead"><div class="subhead-title">第一晚 · 抵达</div><span>爱森公寓 · 延南洞</span></div><div class="story-shell"><div class="chapter-tag">DAY 00 / SUNDAY EVENING</div><h1 class="story-title">门里有人在笑。</h1><div class="story-layout"><div class="story-card"><div class="story-copy" id="openingCopy"></div><div class="choice-list" id="openingChoices"></div></div><aside class="story-aside" id="profileAside"></aside></div></div></section>
+      <section class="screen" id="housing"><div class="subhead"><div class="subhead-title">客厅 · 选房协商</div><span>先找一个能放下行李的位置</span></div><div class="story-shell"><div class="chapter-tag">ROOM ASSIGNMENT / 01</div><h1 class="story-title">空床位只有一张。</h1><div class="story-layout"><div class="story-card"><div class="story-copy">晚饭后，海媛把一张手写的房间表放在桌上。双人房 B 还空着一张床；其他房间都住满了。有人靠着沙发扶手，有人把杯子捧在手里，等你先开口。
+
+“不用现在就觉得不好意思，”朴珍说，“我们可以商量。”</div><div class="room-grid" id="roomOptions"></div><div class="notice" id="roomNote">选房会影响室友之间的安排与最初的亲近感。选择一项，大家就按这个决定安顿下来。</div></div><aside class="story-aside"><strong>房间现状</strong><br>双人房 A：吴海媛、张圭真<br>双人房 B：朴珍，空一床<br>双人房 C：裴真率、金智羽<br>单人房：薛仑娥<br><br>你可以和室友同住，也可以提出自己住。协商方案会留在你的记录里。</aside></div></div></section>
+      <section class="screen" id="game"><div class="game-shell"><div class="game-head"><div class="game-brand">爱森公寓 232 室 <small>共同生活记录</small></div><div class="dayline" id="dayLine">第 1 天 · 星期一 · 傍晚</div></div><div class="game-grid"><div class="main-column"><div class="scene-bar"><span>现在的位置</span><strong id="locationLabel">客厅 · 沙发边</strong></div><div class="room-scene"><div class="scene-caption"><small id="sceneEyebrow">THE FIRST EVENING</small><h2 id="sceneTitle">七个人，客厅有点挤。</h2></div></div><div class="action-row"><button class="action-button accent" id="chatButton" onclick="openChat()">＋ 找一位室友聊聊</button><span class="daily-event-note">随机日常每天开始自动触发 · 计入今日行动</span><button class="action-button" onclick="endDay()" id="endDayBtn">结束今天 →</button></div><article class="story-panel" id="eventPanel"><div class="event-kicker">ROOM 232 · FIRST NIGHT</div><h2 class="event-title">你终于把行李放下了。</h2><div class="story-copy" id="eventCopy"></div><div class="choice-list" id="eventChoices"></div></article><div class="ending" id="endingNote" hidden></div></div><aside class="sidebar"><div class="side-section"><div class="side-heading">住客关系 <small>对你的好感</small></div><div id="relationshipList"></div></div><div class="side-section"><div class="side-heading">公寓状态 <small id="romanceLabel">目前单身</small></div><div id="statusList"></div></div><div class="side-section"><div class="side-heading">你的住客卡</div><div class="roster" id="playerCard"></div><div class="save-note">进度自动保存在这台设备上</div></div><div class="side-section"><div class="side-heading">本周行程 <small>延南洞时间</small></div><div class="roster">周二、周四　海媛有课<br>周末　朴珍常有演出<br>夜间　真率上班 / 智羽直播<br>清晨　圭真去甜品店</div></div></aside></div></div></section>
+    </main>
+  </div>
+  <div class="modal-backdrop" id="modalBackdrop" onclick="if(event.target===this)closeModal()"><div class="modal" id="modal"></div></div><div class="toast" id="toast" role="status"></div>
+  <script>
+    const cast=[
+      {id:'haewon',name:'吴海媛',alias:'海媛',job:'大学老师',tag:'稳重理智',initial:25,cap:92,color:'#62776a',room:'双人房 A',image:'img/吴海媛.jpg'},
+      {id:'lily',name:'朴珍',alias:'朴珍',job:'音乐剧演员',tag:'开朗治愈',initial:33,cap:95,color:'#d8775a',room:'双人房 B',image:'img/朴珍.jpg'},
+      {id:'sullyoon',name:'薛仑娥',alias:'仑娥',job:'模特',tag:'清冷细腻',initial:20,cap:93,color:'#8297a0',room:'单人房',image:'img/薛仑娥.jpg'},
+      {id:'bae',name:'裴真率',alias:'真率',job:'调酒师',tag:'帅气直进',initial:30,cap:98,color:'#b58b54',room:'双人房 C',image:'img/裴真率.jpg'},
+      {id:'jiwoo',name:'金智羽',alias:'智羽',job:'虚拟主播',tag:'内核强大',initial:30,cap:100,color:'#7688ae',room:'双人房 C',image:'img/金智羽.jpg'},
+      {id:'kyujin',name:'张圭真',alias:'圭真',job:'甜品师',tag:'反差年下',initial:30,cap:92,color:'#cf8b99',room:'双人房 A',image:'img/张圭真.jpg'}
+    ];
+    const traits=['开朗','沉稳','幽默','细心','随和','独立','社恐','话多','整洁','邋遢','夜猫子','早起型'];
+    const roomChoices=[
+      {key:'lily',title:'和朴珍住 · 双人房 B',desc:'不用调整其他人的房间。她把空出来的半边床铺整理得很平整。',effects:{lily:5},room:'双人房 B'},
+      {key:'haewon',title:'和海媛住 · 双人房 A',desc:'圭真搬去双人房 B。海媛点点头，问你有没有不习惯的作息。',effects:{haewon:3,kyujin:-2,lily:1},room:'双人房 A'},
+      {key:'kyujin',title:'和圭真住 · 双人房 A',desc:'海媛搬去双人房 B。圭真说她会把烘焙工具收好，请你别把她当小孩。',effects:{kyujin:5,haewon:-1,lily:1},room:'双人房 A'},
+      {key:'sullyoon',title:'和仑娥住 · 你住单人房',desc:'仑娥搬去双人房 B。她轻声说，如果你需要安静，单人房也很好。',effects:{sullyoon:4,lily:1},room:'单人房'},
+      {key:'bae',title:'和真率住 · 双人房 C',desc:'智羽搬去双人房 B。真率朝你笑了一下：“我凌晨回来会轻一点。”',effects:{bae:5,jiwoo:-3,lily:1},room:'双人房 C'},
+      {key:'jiwoo',title:'和智羽住 · 双人房 C',desc:'真率搬去双人房 B。智羽问你介不介意直播设备的指示灯。',effects:{jiwoo:5,bae:-2,lily:1},room:'双人房 C'},
+      {key:'solo',title:'自己一个人住 · 单人房',desc:'仑娥搬去双人房 B。大家重新分配了房间，餐桌边安静了一会儿。',effects:{sullyoon:-2,haewon:-1,lily:1,bae:-1,jiwoo:-1,kyujin:-1},room:'单人房'}
+    ];
+    const eventBank=[
+      {place:'厨房',title:'冰箱里最后一盒草莓牛奶',text:'厨房的灯只开了一半。你伸手去拿冰箱里的草莓牛奶，才发现门上贴着一张便签：\n“谁都可以喝，喝完记得告诉我。——圭真”\n圭真正好从走廊出来，看见你手里的牛奶。',person:'kyujin',a:'“我喝完会把盒子洗干净，顺便谢谢你。”',ad:3,aa:2,b:'“就一盒牛奶而已，不用这么认真吧。”',bd:-4,ba:-1,replyA:'圭真笑着摇摇头：“洗盒子就不用啦，不过谢谢你记得告诉我。下次我给你留一盒新的。”',replyB:'圭真把手里的便签折了一下：“我只是想让大家知道是谁喝了。算了，我再写清楚一点。”'},
+      {place:'阳台',title:'晾衣绳旁边的安静',text:'夜风从延南洞的巷子吹上来。仑娥坐在阳台边，膝上放着一本画册，窗台那束假花被风吹得轻轻摇晃。她没有抬头，只把旁边的椅子往外拉了一点。',person:'sullyoon',a:'不追问，坐下来陪她看一会儿画册。',ad:3,aa:2,b:'问她是不是又在拍摄上遇到麻烦。',bd:-2,ba:0,replyA:'仑娥翻过一页，把画册稍稍朝你这边倾斜：“这张是今天路上看到的光。你也喜欢吗？”',replyB:'仑娥停下翻页，轻声说：“今天没有出什么事，我只是想安静坐一会儿。”'},
+      {place:'客厅',title:'试镜前的那首歌',text:'朴珍盘腿坐在地毯上，剧本摊在茶几边。她哼了两句就停下来，盯着纸页发呆。看见你经过，她把剧本合上：“明天试镜，我好像有点唱不进去了。”',person:'lily',a:'“你之前练的那段特别好。要不要我陪你再过一遍？”',ad:4,aa:2,b:'“别紧张啦，你肯定能过的。”',bd:-2,ba:0,replyA:'朴珍眼睛亮起来，把剧本重新翻开：“好啊！那你帮我听听这一句，哪里最有感情？”',replyB:'朴珍笑了笑，却没有打开剧本：“谢谢，不过我现在更想先缓一口气，不太想听保证。”'},
+      {place:'玄关',title:'凌晨回来的脚步声',text:'已经过了十二点。门锁响了两声，真率轻手轻脚地进门，手里还拎着一只装了无酒精鸡尾酒的小瓶子。她看见你还醒着，表情松了一点：“今天店里有点吵。”',person:'bae',a:'接过饮料，问她今天过得怎么样。',ad:4,aa:2,b:'“这么晚才回来，明天别吵到大家。”',bd:-3,ba:-2,replyA:'真率把饮料递给你，终于松了口气：“谢谢你还醒着。店里忙到打烊，我正想找个人说说。”',replyB:'真率收回手里的饮料，压低声音：“我已经尽量放轻脚步了。下次我会更注意。”'},
+      {place:'走廊',title:'直播结束以后',text:'智羽的房门终于打开。她把耳机挂在脖子上，伸展了一下手指。屏幕上的直播灯刚刚熄掉，她看见你，指了指桌上的一张小游戏草图：“我今天做的，你要看看吗？”',person:'jiwoo',a:'认真看草图，问她这个小机关是怎么做的。',ad:4,aa:2,b:'“好可爱哦，像小朋友玩的东西。”',bd:-4,ba:-1,replyA:'智羽把草图转向你，越说越起劲：“这里用了一个很简单的触发条件。你想试着玩一遍吗？”',replyB:'智羽把草图轻轻收回去：“我知道你可能是想夸可爱，不过我做它时是真的花了心思。”'},
+      {place:'厨房',title:'冰美式和一张整齐的清单',text:'海媛正在厨房桌边整理下周的公寓开销，便利贴按颜色排成一列。她把一杯冰美式挪到桌角，给你留出位置：“垃圾分类日我写在门上了，有空看一下。”',person:'haewon',a:'“收到。谢谢你一直记这些，确实帮了大家很多。”',ad:3,aa:2,b:'“这种事不用安排得这么复杂吧。”',bd:-4,ba:-2,replyA:'海媛把笔放下，笑了一下：“有人愿意一起记就轻松多了。周四的轮值我发到群里，可以吗？”',replyB:'海媛停了停，语气还是平静：“我也希望简单一点，只是之前没人记才总会漏掉。”'},
+      {place:'客厅',title:'店里带回来的小蛋糕',text:'圭真把一只纸盒放在餐桌上。里面是刚做好的柚子奶油小蛋糕，边缘收得很漂亮。她把叉子递给你，装作随口一提：“新品，帮我试味道。别只说好吃。”',person:'kyujin',a:'仔细尝过后告诉她柚子香气和奶油的平衡刚刚好。',ad:4,aa:2,b:'“挺甜的，反正你还小，喜欢甜也正常。”',bd:-5,ba:-2,replyA:'圭真终于笑了：“你真的尝出柚子了！那我下次少放一点糖，再做一版给你试。”',replyB:'圭真放下叉子，认真看着你：“我想听的是味道，不是因为我年纪小才喜欢甜。”'},
+      {place:'便利店',title:'巷口的便利店灯光',text:'你下楼买水，刚好遇见仑娥从摄影棚回来。她把口罩拉下来透气，手里拿着一瓶还没开封的水。便利店的冰柜嗡嗡作响，她看起来有点累，但还是朝你点了点头。',person:'sullyoon',a:'记得她不太爱喝水，买一小瓶常温水放到她手边。',ad:3,aa:2,b:'夸她今天看起来特别漂亮。',bd:0,ba:0,replyA:'仑娥接过水，小声道谢：“常温的刚刚好。今天棚里一直开冷气，我有点不舒服。”',replyB:'仑娥眨眨眼，笑着说：“谢谢。比起好不好看，我更想先回家换件舒服的衣服。”'},
+      {place:'厨房',title:'有人吃了酸奶',text:'冰箱门上贴着“这周的，别拿错”，但其中一格空了。智羽拿着勺子站在厨房里，主动承认自己看错了标签。她说会把自己的布丁留给失主，表情认真得像在提交一份小型事故报告。',person:'jiwoo',a:'“谢谢你说清楚，记得下次看标签就好。”',ad:2,aa:2,b:'“这种小事也要解释吗？”',bd:-3,ba:-1,replyA:'智羽明显松了一口气：“好，我把标签也重新看一下。布丁就当赔礼，口味你挑。”',replyB:'智羽把勺子放进水槽：“我不想让人以为我故意拿错，所以才说一声。”'},
+      {place:'阳台',title:'风把拍立得吹到了地上',text:'阳台门边掉着一张拍立得。照片里是大家在餐桌边吃饭的背影，边角写着日期。朴珍正找那张照片，看到你捡起来，笑意里多了点不好意思：“我还以为它被风吹走了。”',person:'lily',a:'把照片递给她，问她愿不愿意把它贴到玄关软木板上。',ad:3,aa:2,b:'把照片放回桌上，没多问。',bd:0,ba:0,replyA:'朴珍接过照片，笑起来：“这个主意好！这样每天回家都能看见。你来帮我挑位置吧。”',replyB:'朴珍把照片收好，朝你点点头：“谢谢你帮我捡起来，我先自己留着也很好。”'},
+      {place:'客厅',title:'遥控器在沙发缝里',text:'电视停在综艺暂停画面，真率和海媛各自坐在沙发一端。遥控器只露出一个角。真率伸手够了几次，海媛看着手里的课程资料，没有抬头。',person:'bae',a:'把遥控器捡起来，问大家想看什么，轮流选一集。',ad:2,aa:2,b:'拿过遥控器，直接换到自己想看的节目。',bd:-2,ba:-1,replyA:'真率把遥控器递给海媛：“公平！一人选一集，下一轮再换你。”海媛也合上资料坐了过来。',replyB:'真率看了眼被换掉的节目，耸耸肩：“下次先问一声嘛，刚好看到一半。”'},
+      {place:'玄关',title:'一张没有署名的便条',text:'玄关软木板上多了一张字迹圆圆的便条：“最近辛苦啦，冰箱里有布丁。”没有署名。你回头时，智羽正抱着她的小熊玩偶从房间出来，视线在便条和你之间停了一下。',person:'jiwoo',a:'留一张感谢的小纸条，也问她布丁是哪种口味。',ad:3,aa:2,b:'当作没看见，拿了布丁就走。',bd:-2,ba:-1,replyA:'智羽抱紧小熊，笑着说：“是焦糖口味！谢谢你回纸条，下次我也想试试你喜欢的东西。”',replyB:'智羽看了眼空掉的布丁盒，没有说什么，只把小熊抱得更紧了一点。'}
+    ];
+    let state=null;let selectedTraits=[];let toastTimer;
+    function freshState(profile){return {profile,likes:Object.fromEntries(cast.map(c=>[c.id,c.initial])),day:1,weekday:1,actions:2,atmosphere:65,fatigue:30,location:'客厅 · 沙发边',room:'待协商',romance:null,intimacy:0,jealousy:0,roomChosen:false,dailyEventPending:false,dailyEvent:null,conversation:null,turn:0,ending:false}}
+    function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('active',s.id===id));window.scrollTo({top:0,behavior:'smooth'})}
+    function setupTraits(){const root=document.getElementById('traitChips');traits.forEach(t=>{const b=document.createElement('button');b.type='button';b.className='chip';b.textContent=t;b.onclick=()=>{if(selectedTraits.includes(t)){selectedTraits=selectedTraits.filter(x=>x!==t);b.classList.remove('selected')}else if(selectedTraits.length<4){selectedTraits.push(t);b.classList.add('selected')}else{notify('性格关键词最多选择 4 个。')}};root.appendChild(b)})}
+    setupTraits();
+    document.getElementById('customTrait').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();const v=e.target.value.trim();if(v&&selectedTraits.length<4&&!selectedTraits.includes(v)){selectedTraits.push(v);const b=document.createElement('button');b.type='button';b.className='chip selected';b.textContent=v;b.onclick=()=>{selectedTraits=selectedTraits.filter(x=>x!==v);b.remove()};document.getElementById('traitChips').appendChild(b);e.target.value=''}else if(selectedTraits.length>=4)notify('性格关键词最多选择 4 个。')}});
+    document.getElementById('profileForm').addEventListener('submit',e=>{e.preventDefault();const data=new FormData(e.currentTarget);if(selectedTraits.length<2){document.getElementById('formError').textContent='请至少选择两个性格关键词。';return}const profile={name:data.get('name').trim(),age:data.get('age'),job:data.get('job').trim(),mbti:data.get('mbti').trim()||'未测定',traits:[...selectedTraits],schedule:document.getElementById('schedule').value,cooking:document.getElementById('cooking').value,tidy:document.getElementById('tidy').value,social:document.getElementById('social').value,reason:document.getElementById('reason').value.trim()||'待揭晓'};state=freshState(profile);save();renderOpening();showScreen('opening')});
+    function renderOpening(){const p=state.profile;document.getElementById('openingCopy').textContent=`首尔的九月还没有要凉下来的意思。傍晚六点，你站在延南洞一栋旧居民楼的二楼，手里捏着一把新钥匙。门里传来一阵笑声，接着有人说了句什么，笑声又响起来。\n\n门开了。一个穿灰色卫衣的女生先迎上来，顺手帮你把行李箱拉进玄关。客厅里，海媛端着冰美式朝你点头；仑娥从沙发边抬眼看了看你；智羽抱着棕色小熊坐在地毯上；真率靠在厨房岛台边，笑得很直接。走廊里有人探出头来，是刚从甜品店回来的圭真。\n\n“我是朴珍，”最先迎接你的女生说，“欢迎来 232 室。你路上还顺利吗？”\n\n七个人，客厅有点挤。你把手从行李箱拉杆上松开。`;document.getElementById('profileAside').innerHTML=`<strong>新住客</strong><br>${esc(p.name)} · ${esc(p.age)} 岁<br>${esc(p.job)}<br>性格：${p.traits.map(esc).join(' / ')}<br>作息：${esc(p.schedule)}<br>搬来原因：${esc(p.reason)}`;const opts=[['“大家好，我叫'+p.name+'，请多关照。”','礼貌地做自我介绍',()=>{changeLike('lily',2);changeLike('haewon',1);state.atmosphere++;goHousing('客厅里有人跟着报上名字，海媛记下了你的称呼。')}],['“房间……现在是怎么安排的？”','先把行李安顿下来',()=>{changeLike('haewon',2);goHousing('海媛把房间表翻到空床位那一页，其他人也围了过来。')}],['先不说话，观察一下大家。','记住每个人的样子',()=>{changeLike('sullyoon',1);changeLike('jiwoo',1);state.fatigue++;goHousing('你先听大家把话说完。仑娥注意到你在看她的画册，智羽把怀里的小熊抱紧了一点。')}],['“我带了点路上的零食，大家要吃吗？”','把第一份分享放在桌上',()=>{changeLike('lily',2);changeLike('kyujin',2);state.atmosphere+=2;goHousing('零食袋很快被放到餐桌中央，紧张感松了一点。')}]];document.getElementById('openingChoices').innerHTML='';opts.forEach(([label,hint,fn])=>{const b=document.createElement('button');b.className='choice';b.innerHTML=`<span>${esc(label)}</span><small>${esc(hint)}</small>`;b.onclick=()=>{fn();save();renderRoomOptions()};document.getElementById('openingChoices').appendChild(b)})}
+    let housingIntro='';function goHousing(text){housingIntro=text;showScreen('housing')}
+    function renderRoomOptions(){const root=document.getElementById('roomOptions');root.innerHTML='';roomChoices.forEach(o=>{const b=document.createElement('button');b.className='room-option';b.innerHTML=`<strong>${esc(o.title)}</strong><span>${esc(o.desc)}</span><em>确认这个安排 ↗</em>`;b.onclick=()=>chooseRoom(o);root.appendChild(b)});if(housingIntro)document.getElementById('roomNote').textContent=housingIntro+' 选房后，你们就开始第一周的共同生活。'}
+    function chooseRoom(option){Object.entries(option.effects).forEach(([id,n])=>changeLike(id,n));state.room=option.room;state.roomChosen=true;state.atmosphere=clamp(state.atmosphere+1,0,100);save();renderGame();showScreen('game');notify('房间安排已记下。第一天开始了。');triggerDailyEvent()}
+    function changeLike(id,delta){const c=cast.find(x=>x.id===id);state.likes[id]=clamp((state.likes[id]||0)+delta,0,c.cap)}
+    function clamp(n,min,max){return Math.max(min,Math.min(max,n))}function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+    function save(){if(state)try{localStorage.setItem('eisen232-save',JSON.stringify(state))}catch(e){}}
+    function notify(text){const t=document.getElementById('toast');t.textContent=text;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),2200)}
+    function renderGame(){if(!state)return;const activity=state.conversation?'正在和室友对话':state.dailyEventPending?'先回应今天的随机日常':state.actions?'还有 '+state.actions+' 次行动':'今天的行动已用完';document.getElementById('dayLine').textContent=`第 ${state.day} 天 · ${['星期日','星期一','星期二','星期三','星期四','星期五','星期六'][state.weekday]} · ${activity}`;document.getElementById('locationLabel').textContent=state.location;document.getElementById('relationshipList').innerHTML=cast.map(c=>`<div class="meter-row"><div class="meter-top"><button onclick="openChat('${c.id}')" ${state.dailyEventPending?'disabled':''}>${c.name}</button><span>${state.likes[c.id]}</span></div><div class="meter-track"><div class="meter-fill" style="width:${state.likes[c.id]}%;background:${c.color}"></div></div></div>`).join('');document.getElementById('statusList').innerHTML=`<div class="stat-row"><span>公寓氛围</span><div class="stat-track"><i style="width:${state.atmosphere}%"></i></div><b>${state.atmosphere}</b></div><div class="stat-row"><span>疲劳值</span><div class="stat-track"><i style="width:${state.fatigue}%;background:#d8775a"></i></div><b>${state.fatigue}</b></div>${state.romance?`<div class="stat-row"><span>亲密度</span><div class="stat-track"><i style="width:${state.intimacy}%;background:#d8775a"></i></div><b>${state.intimacy}</b></div><div class="stat-row"><span>嫉妒值</span><b>${state.jealousy}</b></div>`:''}`;document.getElementById('romanceLabel').textContent=state.romance?`恋爱中 · ${cast.find(c=>c.id===state.romance)?.alias}`:'目前单身';document.getElementById('playerCard').innerHTML=`<strong>${esc(state.profile.name)}</strong> · ${esc(state.profile.age)} 岁 · ${esc(state.profile.job)}<br>房间：${esc(state.room)}<br>性格：${state.profile.traits.map(esc).join(' / ')}`;document.getElementById('chatButton').disabled=state.dailyEventPending;document.getElementById('endDayBtn').disabled=state.actions>0||state.dailyEventPending;document.getElementById('endingNote').hidden=!state.ending}
+    function renderGame(){if(!state)return;const activity=state.conversation?'正在和室友对话':state.dailyEventPending?'先回应今天的随机日常':state.actions?'还有 '+state.actions+' 次行动':'今天的行动已用完';document.getElementById('dayLine').textContent=`第 ${state.day} 天 · ${['星期日','星期一','星期二','星期三','星期四','星期五','星期六'][state.weekday]} · ${activity}`;document.getElementById('locationLabel').textContent=state.location;document.getElementById('relationshipList').innerHTML=cast.map(c=>`<div class="meter-row"><div class="meter-top"><button onclick="openChat('${c.id}')" ${state.dailyEventPending?'disabled':''}>${c.name}</button><span>${state.likes[c.id]}</span></div><div class="meter-track"><div class="meter-fill" style="width:${state.likes[c.id]}%;background:${c.color}"></div></div></div>`).join('');document.getElementById('statusList').innerHTML=`<div class="stat-row"><span>公寓氛围</span><div class="stat-track"><i style="width:${state.atmosphere}%"></i></div><b>${state.atmosphere}</b></div><div class="stat-row"><span>疲劳值</span><div class="stat-track"><i style="width:${state.fatigue}%;background:#d8775a"></i></div><b>${state.fatigue}</b></div>${state.romance?`<div class="stat-row"><span>亲密度</span><div class="stat-track"><i style="width:${state.intimacy}%;background:#d8775a"></i></div><b>${state.intimacy}</b></div><div class="stat-row"><span>嫉妒值</span><b>${state.jealousy}</b></div>`:''}`;document.getElementById('romanceLabel').textContent=state.romance?`恋爱中 · ${cast.find(c=>c.id===state.romance)?.alias}`:'目前单身';document.getElementById('playerCard').innerHTML=`<strong>${esc(state.profile.name)}</strong> · ${esc(state.profile.age)} 岁 · ${esc(state.profile.job)}<br>房间：${esc(state.room)}<br>性格：${state.profile.traits.map(esc).join(' / ')}`;document.getElementById('chatButton').disabled=state.dailyEventPending;document.getElementById('endDayBtn').disabled=state.actions>0||state.dailyEventPending;document.getElementById('endingNote').hidden=!state.ending}
+    function setEvent(title,text,place,kicker='ROOM 232 · EVERYDAY',speakerId=null) {document.querySelector('#eventPanel .event-title').textContent=title;document.getElementById('eventCopy').textContent=text;document.querySelector('#eventPanel .event-kicker').textContent=kicker;let speaker=document.getElementById('dialogueSpeaker');if(!speaker){speaker=document.createElement('div');speaker.id='dialogueSpeaker';speaker.className='dialogue-speaker';document.getElementById('eventCopy').before(speaker)}const person=cast.find(c=>c.id===speakerId);speaker.hidden=!person;if(person)speaker.innerHTML=`<img src="${person.image}" alt="${person.alias}"><div><small>正在对话</small><strong>${person.alias}</strong></div>`;state.location=place;renderGame()}
+    function useAction(){if(state.actions<=0){notify('今天的行动已经用完，先结束这一天吧。');return false}state.actions--;state.turn++;state.fatigue=clamp(state.fatigue+3,0,100);return true}
+    function triggerDailyEvent(){if(!useAction())return;state.dailyEvent=eventBank[Math.floor(Math.random()*eventBank.length)];state.dailyEventPending=true;save();renderDailyEvent(state.dailyEvent)}
+    function renderDailyEvent(event){setEvent(event.title,event.text,event.place,`DAY ${String(state.day).padStart(2,'0')} / EVERYDAY EVENT`,event.person);const root=document.getElementById('eventChoices');root.innerHTML='';[[event.a,event.ad,event.aa,event.replyA],[event.b,event.bd,event.ba,event.replyB]].forEach(([label,delta,atmo,reply],index)=>{const button=document.createElement('button');button.className='choice';button.innerHTML=`<span>${esc(label)}</span>`;button.addEventListener('click',()=>resolveDailyEvent(event,delta,atmo,index===0?'你认真回应了这件小事。':'这次的回应让气氛稍微变得不同。',reply));root.appendChild(button)});const form=document.createElement('form');form.className='custom-reply';form.innerHTML='<label for="dailyEventReply">或者自己输入回答</label><textarea id="dailyEventReply" name="message" maxlength="240" placeholder="说说你想对她讲的话..." required></textarea><button class="action-button accent" type="submit">发送回答</button>';form.addEventListener('submit',submitDailyEventReplyFor(event));root.appendChild(form);save();renderGame()}
+    function resolveDailyEvent(event,delta,atmo,description,reply,message=''){if(!state.dailyEventPending)return;const person=cast.find(c=>c.id===event.person);changeLike(event.person,delta);state.atmosphere=clamp(state.atmosphere+atmo,0,100);state.dailyEventPending=false;state.dailyEvent=null;document.getElementById('eventCopy').textContent+=`\n\n你：${message?`「${message}」`:'说出了自己的想法。'}\n${message?`${person.alias}：「${buildCustomReply(event.person,message,delta)}」`:reply}`;document.getElementById('eventChoices').innerHTML=`<div class="notice">${description} ${person.alias} 对你的好感 ${delta>=0?'+'+delta:delta}，公寓氛围 ${atmo>=0?'+'+atmo:atmo}。</div>`;save();renderGame()}
+    function submitDailyEventReplyFor(event){return function(e){e.preventDefault();const message=String(new FormData(e.currentTarget).get('message')||'').trim();if(!message){notify('先写下你想说的话。');return}const delta=scoreCustomReply(event.person,message);const atmosphereDelta=delta>0?1:delta<0?-1:0;resolveDailyEvent(event,delta,atmosphereDelta,'你认真说出了自己的想法。','',message)}}
+    const chatOptions=[{text:'认真听她说完，再回应她的感受。',d:3,a:1},{text:'夸奖她最近做得很好的那件事。',d:3,a:1},{text:'问她有没有什么小事需要你帮忙。',d:2,a:2},{text:'开个玩笑，轻轻带过这个话题。',d:-1,a:-1}];
+    const chatReplies={
+      haewon:['海媛把便利贴推到一旁：“谢谢你愿意听我说。你刚搬来，有没有哪件事最想先安顿好？”','海媛笑了笑：“你注意到了呀。其实把这些小事理顺，大家住起来都会轻松些。”','海媛递来一张清单：“有。你能帮我看看这周哪天一起采购比较方便吗？”','海媛无奈地笑：“这个玩笑我先记下了。不过垃圾分类日还是得记住哦。”'],
+      lily:['朴珍的肩膀松下来：“谢谢你没有急着给我答案。你刚才听到那句旋律了吗？”','朴珍把剧本抱在胸前：“你这样说我就有点信心了。等试镜结束，我请你听完整首歌。”','朴珍把剧本翻开：“可以陪我对一下第一段吗？我想找回刚才那种感觉。”','朴珍笑出声：“好啦，被你逗得没那么紧张了。那你今天过得怎么样？”'],
+      sullyoon:['仑娥望向你，轻轻点头：“谢谢你没有追问。安静待一会儿，好像也挺好的。”','仑娥低头看着画册：“谢谢。其实我今天拍到一张很喜欢的光影，想给你看看。”','仑娥把画册递过来：“你能帮我选一下吗？这两张照片我都舍不得删。”','仑娥轻轻笑了：“你这个玩笑还挺安静的。要不要再陪我坐一会儿？”'],
+      bae:['真率靠回椅背：“谢谢你听我讲。你要是愿意，我把店里新调的无酒精特饮给你尝尝。”','真率挑眉笑道：“难得有人夸我。下次来店里，我给你调一杯特别的。”','真率把手边的杯子递给你：“帮我尝一口，看看柑橘和薄荷是不是太冲了。”','真率笑着碰了碰杯沿：“行，那我不卖关子了。你今天有没有遇到什么好玩的事？”'],
+      jiwoo:['智羽放下数位笔：“谢谢你认真听。对了，你刚才说的那个游戏我也想试试看。”','智羽眼睛一亮：“真的？我把画稿整理好发你，你帮我看看最喜欢哪一版。”','智羽把草图转过来：“正好，帮我试试这个机关。我还没找到最顺手的操作方式。”','智羽笑着摇头：“你还挺会转移话题的。等下我把直播切片发给你看。”'],
+      kyujin:['圭真把点心盒往你那边推了推：“谢谢你认真听我说。你平时最喜欢什么口味？”','圭真露出笑容：“被你看出来了！下次新品第一个请你试吃，我还想听更具体的建议。”','圭真递给你一把小叉子：“帮我试试这个新口味吧，告诉我第一口是什么感觉。”','圭真噘嘴笑道：“我可听出来你在逗我了。那你猜猜这次我加了什么？”']
+    };
+    function openChat(id){if(!state||!state.roomChosen)return;const person=cast.find(c=>c.id===id);if(!person){showModal(`<div class="modal-head"><div><h2>想和谁聊聊？</h2><p>选一个室友，看看今晚的谈话会落在哪里。</p></div><button class="close" onclick="closeModal()">×</button></div><div class="choice-list">${cast.map(c=>`<button class="choice" onclick="openChat('${c.id}')"><span>${c.name} · ${c.tag}</span><small>${state.likes[c.id]} 好感</small></button>`).join('')}</div>`);return}if(state.actions<=0){notify('今天没有剩余行动。');closeModal();return}showModal(`<div class="modal-head"><div><div class="eyebrow">A SMALL CONVERSATION</div><h2>和${person.alias}聊聊</h2><p>${person.tag} · ${person.job} · 当前好感 ${state.likes[id]}</p></div><button class="close" onclick="closeModal()">×</button></div><div class="story-card" style="padding:18px;margin-top:10px"><div class="story-copy" style="font-size:14px">${esc(chatPrompt(person))}</div></div><div class="choice-list">${chatOptions.map((o,i)=>`<button class="choice" onclick="chooseChat('${id}',${i})"><span>${esc(o.text)}</span></button>`).join('')}</div>`)}
+    function chatPrompt(p){const lines={haewon:'她的桌面收拾得很整齐，批改过的作业叠在手边。她问你，住进来以后有没有什么不习惯。',lily:'她把剧本放到一旁，先问了问你今天累不累。她的笑声比白天轻了一点。',sullyoon:'她坐在阳台门边看一张画册。你走近时，她把旁边的位置留了出来。',bae:'她刚下班回家，低声说今天遇到一位很难沟通的客人。外套上还有一点酒吧的香气。',jiwoo:'直播刚结束，她正在整理画画用的数位笔。她问你最近有没有玩什么小游戏。',kyujin:'她把店里带回来的小蛋糕切成几份，问你要不要尝一口，再认真听听你的意见。'};return lines[p.id]}
+    function chooseChat(id,index){if(!useAction())return;const option=chatOptions[index];changeLike(id,option.d);state.atmosphere=clamp(state.atmosphere+option.a,0,100);const p=cast.find(c=>c.id===id);closeModal();setEvent(`和${p.alias}说了一会儿话`,`你选择了「${option.text}」\n\n${chatReplies[id][index]}`,sceneDestinations[conversationDestinations[id]].place,'DAY '+String(state.day).padStart(2,'0')+' / CONVERSATION',p.id);document.getElementById('eventChoices').innerHTML=`<div class="notice">${p.alias} 对你的好感 ${option.d>=0?'+'+option.d:option.d} · 公寓氛围 ${option.a>=0?'+'+option.a:option.a}。</div>`;save();renderGame()}
+    function triggerConfession(id){const c=cast.find(x=>x.id===id);const threshold={haewon:80,lily:75,sullyoon:85,bae:75,jiwoo:79,kyujin:75}[id];if(state.likes[id]<threshold){notify(`和${c.alias}的关系还需要更多相处。`);return}if(state.romance){notify('你已经在一段恋爱关系中，先认真面对现在的关系。');return}state.romance=id;state.intimacy=10;state.jealousy=0;setEvent(`你们把话说开了`,`你没有把那句话当成玩笑。房间里安静了片刻，${c.alias}看着你，等你给出自己的回答。你们决定从今天开始认真交往。`,'公寓 · 夜晚','A NEW CHAPTER',id);save();renderGame();closeModal();notify('关系状态已更新。')}
+    function endDay(){if(state.actions>0||state.dailyEventPending)return;state.fatigue=clamp(state.fatigue-8,0,100);state.day++;state.weekday=(state.weekday+1)%7;state.actions=2;state.atmosphere=clamp(state.atmosphere+(state.atmosphere<50?1:0),0,100);state.location='厨房 · 早餐桌';state.dailyEventPending=false;state.ending=state.day>=7;document.getElementById('endingNote').hidden=!state.ending;if(state.ending)document.getElementById('endingNote').textContent='第一周结束了。故事还会继续：关系、习惯和下一次选择，都留在这间公寓里。';save();renderGame();notify(`第 ${state.day} 天，早上好。`);triggerDailyEvent()}
+    function showModal(html){document.getElementById('modal').innerHTML=html;document.getElementById('modalBackdrop').classList.add('open')}function closeModal(){document.getElementById('modalBackdrop').classList.remove('open')}
+    window.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+    (function resume(){try{const saved=JSON.parse(localStorage.getItem('eisen232-save'));if(saved&&saved.profile){state=saved;if(state.roomChosen){renderGame();showScreen('game')}else if(state.profile){renderOpening();showScreen('opening')}}}catch(e){}})();
+  </script>
+  <style>
+    .custom-reply{display:grid;gap:8px;margin-top:18px;padding-top:14px;border-top:1px solid var(--line)}
+    .custom-reply label{font-size:12px;font-weight:700}
+    .custom-reply textarea{width:100%;min-height:86px;resize:vertical;border:1px solid var(--line);background:var(--white);padding:10px 12px;color:var(--ink);font:inherit;font-size:13px;line-height:1.6}
+    .custom-reply textarea:focus{outline:2px solid #aab9aa;outline-offset:1px}
+    .custom-reply button{justify-self:end}
+  </style>
+  <script>
+    const customReplyProfiles={
+      haewon:{positive:['认真','负责','安排','计划','稳妥','可靠','整理','尊重','理解','听你说'],negative:['敷衍','乱放','随便','多管闲事','别管'],good:'她认可了你认真、稳妥的回应。',bad:'她不太喜欢被敷衍，也很在意彼此的分寸。',neutral:'她点点头，平静地听完了你的话。'},
+      lily:{positive:['演出','剧本','音乐','分享','开心','陪你','感受','支持','创作','一起'],negative:['矫情','扫兴','没意思','别演','戏多'],good:'她被你的热情感染，愿意继续和你分享心情。',bad:'她的笑意淡了一些，似乎觉得自己的感受没有被接住。',neutral:'她笑着听完，话题暂时停在这里。'},
+      sullyoon:{positive:['安静','画','画册','风景','慢慢','不打扰','空间','舒服','理解','喜欢'],negative:['逼问','隐私','吵','一直问','必须','热闹'],good:'她放松下来，觉得你给了她舒服的空间。',bad:'她安静了下来，像是想把自己的边界收得更紧一些。',neutral:'她轻轻点头，仍把安静留在你们之间。'},
+      bae:{positive:['直接','坦白','工作','调酒','辛苦','欣赏','直说','有趣','请教','干杯'],negative:['装','绕弯','管着','说教','不许','看不起'],good:'她欣赏你的坦率，回应也变得更直接。',bad:'她收起了笑意，不太喜欢被管束或被轻视。',neutral:'她听完后爽快地点了点头。'},
+      jiwoo:{positive:['直播','游戏','画画','创作','技术','作品','认真','有趣','支持','喜欢'],negative:['幼稚','不务正业','没用','无聊','关掉直播'],good:'她发现你认真看待自己的兴趣，语气轻快了不少。',bad:'她没有争辩，但明显不想再聊这个话题。',neutral:'她听完后点点头，顺手收好了画笔。'},
+      kyujin:{positive:['蛋糕','甜品','烘焙','好吃','味道','认真','厉害','请教','平等','同龄'],negative:['小孩','小朋友','年纪小','幼稚','教你','听话'],good:'她因为你的认可露出了笑容，也觉得你把她当成平等的伙伴。',bad:'她的表情认真起来，不太喜欢被当成小孩子。',neutral:'她认真听完，顺手把桌上的点心收拾整齐。'}
+    };
+    const kindReplyWarmth=['谢谢','感谢','辛苦','理解','陪你','支持你','对不起','抱歉','我在','愿意','没关系','喜欢','想听'];
+    const kindReplyHurt=['闭嘴','滚','烦死','没用','矫情','幼稚','小孩','别烦','不关你的事','不务正业','你怎么这么'];
+    const conversationRounds={
+      haewon:[
+        [{text:'那我们周四下午一起去采购吧。',reply:'海媛把周四圈了出来：“好，那就说定了。需要买的东西我整理成清单发给你。”'},{text:'我想先慢慢熟悉公寓和附近。',reply:'海媛点点头：“当然，不用一下子记住所有事。需要帮忙的时候随时告诉我。”'}],
+        [{text:'校园附近有条林荫路，我很喜欢。',reply:'海媛露出笑意：“我下课后也常从那里走。下次时间合适的话，可以一起散步。”'},{text:'那你平时怎么让自己放松？',reply:'海媛想了想：“把手边的事做完，再喝杯咖啡。偶尔什么都不安排，也挺好的。”'}],
+        [{text:'下次一起吃晚饭，我来准备一道菜。',reply:'海媛收好清单：“听起来不错。那我负责带甜点，我们下次再接着聊。”'},{text:'谢谢你陪我聊这些，感觉安心多了。',reply:'海媛温和地点头：“我也很高兴你愿意告诉我。今天先好好休息，明天见。”'}]
+      ],
+      lily:[
+        [{text:'我听出来了，你想要的是把那句唱得更真诚。',reply:'朴珍轻轻哼了一遍：“对，就是这种感觉！你再听一次，这回有没有不一样？”'},{text:'试镜结束以后，我们去吃点好吃的庆祝吧。',reply:'朴珍笑起来：“好啊，不管结果怎样都去。你可不许临时反悔。”'}],
+        [{text:'刚才那句尾音很动人，我想再听一次。',reply:'朴珍翻到那一页：“那我再唱一遍给你听。听完要告诉我最喜欢哪里。”'},{text:'你演出前一般怎么调整紧张？',reply:'朴珍合上剧本：“先深呼吸，再想象故事里的人。现在跟你聊着，我已经没那么紧张了。”'}],
+        [{text:'等试镜回来，把经过都讲给我听吧。',reply:'朴珍把剧本抱在怀里：“一言为定。我回来第一个就找你分享。”'},{text:'谢谢你愿意和我分享，我今天也很开心。',reply:'朴珍笑着收起剧本：“我也是。那就先休息，等我带着新消息回来！”'}]
+      ],
+      sullyoon:[
+        [{text:'我想看看你说的那张光影照片。',reply:'仑娥把画册递近一些：“这张是雨停后拍的。你看到它的时候，想到什么了？”'},{text:'坐在这里不用说话，好像也很舒服。',reply:'仑娥轻轻点头：“嗯，有时候不用找话题也很好。你想坐多久都可以。”'}],
+        [{text:'我想到傍晚的海边，光线也会这样变。',reply:'仑娥抬头看了你一眼：“我也喜欢海边。下次天气好的话，我们可以一起去看看。”'},{text:'你平时还喜欢拍什么风景？',reply:'仑娥翻开另一页：“下雨的街道，还有清晨没人的咖啡店。人少的时候，颜色会更清楚。”'}],
+        [{text:'下次拍到喜欢的照片，再和我分享吧。',reply:'仑娥把画册收好：“好。我会记得的。谢谢你今天安静地陪我。”'},{text:'今天这样就很好，我们下次再聊。',reply:'仑娥轻轻挥了挥手：“好，回去路上小心。晚安。”'}]
+      ],
+      bae:[
+        [{text:'我想尝尝你说的那杯特饮，听起来很清爽。',reply:'真率把杯子推过来：“那你尝尝看。柑橘味先出来，后面才是薄荷。”'},{text:'今天也有遇到让你开心的客人吗？',reply:'真率笑了笑：“有一个客人认真听我介绍新酒，最后还特意说了谢谢。那一刻挺值得的。”'}],
+        [{text:'柑橘味刚刚好，薄荷留在最后很清爽。',reply:'真率举起杯子：“评价很专业嘛。下次我再调一杯新的，继续请你当评委。”'},{text:'下班路上你喜欢听什么音乐？',reply:'真率靠在吧台边：“节奏感强一点的。走夜路的时候听着，感觉整座城市都跟着拍子走。”'}],
+        [{text:'下次下班早的话，我们去街角走走吧。',reply:'真率爽快地答应：“好啊，等我排班确定了就告诉你。”'},{text:'谢谢你愿意跟我分享今天的事。',reply:'真率碰了碰你的杯子：“随时都能说。今天先到这儿，下次再交换新故事。”'}]
+      ],
+      jiwoo:[
+        [{text:'我也有个最近在玩的小游戏，可以推荐给你。',reply:'智羽拿出手机：“发给我吧！我试玩以后告诉你感想，你也来试试我做的这个。”'},{text:'你做这个机关用了什么方法？',reply:'智羽把草图转向你：“先把动作拆成几步，再给每一步加触发条件。要不要我演示一下？”'}],
+        [{text:'我试玩的时候最喜欢那个隐藏的小机关。',reply:'智羽一下坐直了：“你找到了！我还以为没人会注意到那里。要不要看看另一个彩蛋？”'},{text:'如果做成完整游戏，你想加什么内容？',reply:'智羽想了想：“想加一个可以自己设计关卡的模式。这样每个人都能做一个自己的小世界。”'}],
+        [{text:'等你做好了，记得把试玩版发给我。',reply:'智羽笑着点头：“第一个就发你。今天聊得很开心，谢谢你认真看我的作品。”'},{text:'我得去忙了，下次再来听你的新点子。',reply:'智羽把草图收好：“好，我攒几个新想法等你来。路上小心！”'}]
+      ],
+      kyujin:[
+        [{text:'我喜欢酸一点的甜品，柚子味很合我口味。',reply:'圭真拿出小本子记下来：“那下次做柚子塔给你试。你喜欢上面加奶油还是保持清爽？”'},{text:'你最开始是怎么喜欢上烘焙的？',reply:'圭真眼睛亮起来：“小时候第一次做饼干，虽然烤得有点焦，但看到大家吃完特别开心。”'}],
+        [{text:'少放一点奶油，多留些柚子香气吧。',reply:'圭真认真记下：“这个建议很有用。我做两种版本，下次让你来评一评。”'},{text:'第一次做的东西不完美也很有纪念意义。',reply:'圭真笑了：“我还留着那张配方纸呢。下次给你看，上面还有一块焦掉的印子。”'}],
+        [{text:'下次新品做好了，记得第一个叫我来试吃。',reply:'圭真把小本子合起来：“当然，说好了。今天谢谢你陪我聊这么久！”'},{text:'今天聊得很开心，之后我还想听你讲烘焙。',reply:'圭真把点心盒递给你：“随时欢迎来问。拿一块回去吧，下次再聊！”'}]
+      ]
+    };
+    const conversationEndings={haewon:'海媛收起清单，朝你笑了笑：“今天就聊到这里吧。之后有什么事，我们再一起商量。”',lily:'朴珍把剧本夹好：“和你聊完我轻松多了。下次再把后面的故事讲给你听！”',sullyoon:'仑娥合上画册，轻声说：“今晚这样就很好。晚安，我们下次再一起看照片。”',bae:'真率举杯和你轻轻碰了一下：“那就先到这儿，下次见面再继续聊。”',jiwoo:'智羽保存好草图：“我把新进度留给你看。今天谢谢你陪我聊，晚安！”',kyujin:'圭真收好小本子：“新配方做好就叫你。那我们下次见，记得来试吃！”'};
+    function formatConversationLines(lines,personAlias){return lines.map(line=>{if(line.speaker===personAlias&&line.text.startsWith(personAlias))return line.text;if(line.speaker===personAlias&&/^[“「"]/.test(line.text))return `${line.speaker}：${line.text}`;return `${line.speaker}：「${line.text}」`}).join('\n\n')}
+    function startConversation({kind,personId,title,place,playerText,reply,delta,atmo,opening='',customReply=false}){const person=cast.find(c=>c.id===personId);changeLike(personId,delta);state.atmosphere=clamp(state.atmosphere+atmo,0,100);state.dailyEventPending=true;state.conversation={kind,personId,title,place,opening,focus:playerText,customReply,turn:0,lines:[...(opening?[{speaker:'旁白',text:opening}]:[]),{speaker:'你',text:playerText},{speaker:person.alias,text:reply}]};if(kind!=='event')state.dailyEvent=null;save();renderConversation(state.conversation)}
+    function conversationExcerpt(text){const excerpt=text.trim().replace(/[。！？!?，,；;：:]+$/,'');return excerpt.length>28?excerpt.slice(0,28)+'…':excerpt}
+    function renderConversation(conversation){const person=cast.find(c=>c.id===conversation.personId);const kicker=`DAY ${String(state.day).padStart(2,'0')} / CONVERSATION · ${conversation.turn}/3`;setEvent(conversation.title,formatConversationLines(conversation.lines,person.alias),conversation.place,kicker,person.id);const root=document.getElementById('eventChoices');root.innerHTML='';if(conversation.turn>=3){return}const focus=conversation.focus||conversation.lines.find(line=>line.speaker==='你')?.text||'';const excerpt=conversationExcerpt(focus);const options=conversation.turn===0&&conversation.kind==='chat'&&!conversation.customReply?conversationRounds[conversation.personId][0]:[{text:`我刚才说的「${excerpt}」，其实还想补充一点。`,delta:2,atmo:1},{text:`说到「${excerpt}」，我也想听听你的感受。`,delta:1,atmo:0}];options.forEach(option=>{const button=document.createElement('button');button.className='choice';button.innerHTML=`<span>${esc(option.text)}</span>`;button.addEventListener('click',()=>continueConversation(option.text,option.reply,option.delta||2,option.atmo||1));root.appendChild(button)});const form=document.createElement('form');form.className='custom-reply';form.innerHTML=`<label for="conversationReply">继续回答${person.alias}</label><textarea id="conversationReply" name="message" maxlength="240" placeholder="接着她刚才的话继续聊..." required></textarea><button class="action-button accent" type="submit">发送回答</button></form>`;form.addEventListener('submit',submitConversationReply);root.appendChild(form);const finish=document.createElement('button');finish.type='button';finish.className='action-button';finish.textContent='结束对话';finish.addEventListener('click',endConversation);root.appendChild(finish);save()}
+    function continueConversation(playerText,reply,delta,atmo){const conversation=state.conversation;if(!conversation)return;const person=cast.find(c=>c.id===conversation.personId);changeLike(person.id,delta);state.atmosphere=clamp(state.atmosphere+atmo,0,100);conversation.lines.push({speaker:'你',text:playerText},{speaker:person.alias,text:reply||buildCustomReply(person.id,playerText,delta,conversation.focus)});conversation.turn++;if(conversation.turn>=3){conversation.lines.push({speaker:person.alias,text:conversationEndings[person.id]});state.conversation=null;state.dailyEventPending=false;state.dailyEvent=null;setEvent(conversation.title,formatConversationLines(conversation.lines,person.alias),conversation.place,`DAY ${String(state.day).padStart(2,'0')} / CONVERSATION · 完`,person.id);document.getElementById('eventChoices').innerHTML=`<div class="notice">这段对话告一段落。好感 ${delta>=0?'+'+delta:delta} · 公寓氛围 ${atmo>=0?'+'+atmo:atmo}。</div>`;save();renderGame();return}save();renderConversation(conversation)}
+    function submitConversationReply(event){event.preventDefault();const message=String(new FormData(event.currentTarget).get('message')||'').trim();if(!message){notify('先写下你想说的话。');return}const id=state.conversation.personId;const delta=clamp(Math.round(scoreCustomReply(id,message)/2),-2,2);const atmo=delta>0?1:delta<0?-1:0;continueConversation(message,buildCustomReply(id,message,delta),delta,atmo)}
+    function endConversation(){const conversation=state.conversation;if(!conversation)return;const person=cast.find(c=>c.id===conversation.personId);conversation.lines.push({speaker:person.alias,text:`${person.alias}看看时间，轻声说：“今天先聊到这里吧。下次见面，我们再接着说。”`});state.conversation=null;state.dailyEventPending=false;state.dailyEvent=null;setEvent(conversation.title,formatConversationLines(conversation.lines,person.alias),conversation.place,`DAY ${String(state.day).padStart(2,'0')} / CONVERSATION · END`,person.id);document.getElementById('eventChoices').innerHTML='<div class="notice">对话已结束。你们都记住了刚才聊过的话。</div>';save();renderGame()}
+    renderDailyEvent=function(event){setEvent(event.title,event.text,event.place,`DAY ${String(state.day).padStart(2,'0')} / EVERYDAY EVENT`,event.person);const root=document.getElementById('eventChoices');root.innerHTML='';[[event.a,event.ad,event.aa,event.replyA],[event.b,event.bd,event.ba,event.replyB]].forEach(([label,delta,atmo,reply],index)=>{const button=document.createElement('button');button.className='choice';button.innerHTML=`<span>${esc(label)}</span>`;button.addEventListener('click',()=>resolveDailyEvent(event,delta,atmo,index===0?'你认真回应了这件小事。':'这次的回应让气氛稍微变得不同。',reply,label));root.appendChild(button)});const form=document.createElement('form');form.className='custom-reply';form.innerHTML='<label for="dailyEventReply">或者自己输入回答</label><textarea id="dailyEventReply" name="message" maxlength="240" placeholder="说说你想对她讲的话..." required></textarea><button class="action-button accent" type="submit">发送回答</button>';form.addEventListener('submit',submitDailyEventReplyFor(event));root.appendChild(form);save();renderGame()};
+    resolveDailyEvent=function(event,delta,atmo,description,reply,message=''){if(!state.dailyEventPending||state.conversation)return;startConversation({kind:'event',personId:event.person,title:event.title,place:event.place,playerText:message||'回应了这件小事。',reply:message?buildCustomReply(event.person,message,delta):reply,delta,atmo,opening:event.text,customReply:!!message})};
+    submitDailyEventReplyFor=function(event){return function(e){e.preventDefault();const message=String(new FormData(e.currentTarget).get('message')||'').trim();if(!message){notify('先写下你想说的话。');return}const delta=scoreCustomReply(event.person,message);const atmo=delta>0?1:delta<0?-1:0;resolveDailyEvent(event,delta,atmo,'你认真说出了自己的想法。','',message)}};
+    chooseChat=function(id,index){if(state.dailyEventPending||!useAction())return;const option=chatOptions[index];const person=cast.find(c=>c.id===id);closeModal();startConversation({kind:'chat',personId:id,title:`和${person.alias}聊聊`,place:sceneDestinations[conversationDestinations[id]].place,playerText:option.text,reply:chatReplies[id][index],delta:option.d,atmo:option.a,opening:chatPrompt(person)})};
+    submitCustomReply=function(event,id){event.preventDefault();const message=String(new FormData(event.currentTarget).get('message')||'').trim();if(!message){notify('先写下你想说的话。');return}if(state.dailyEventPending||!useAction())return;const delta=scoreCustomReply(id,message);const atmo=delta>0?1:delta<0?-1:0;const person=cast.find(c=>c.id===id);closeModal();startConversation({kind:'chat',personId:id,title:`和${person.alias}聊聊`,place:sceneDestinations[conversationDestinations[id]].place,playerText:message,reply:buildCustomReply(id,message,delta),delta,atmo,opening:chatPrompt(person),customReply:true})};
+    const originalOpenChat=openChat;
+    openChat=function(id){
+      originalOpenChat(id);
+      if(!id||!state||!state.roomChosen||state.actions<=0)return;
+      const person=cast.find(c=>c.id===id);
+      const choices=document.querySelector('#modal .choice-list');
+      if(!person||!choices)return;
+      const form=document.createElement('form');
+      form.className='custom-reply';
+      form.innerHTML='<label for="customReplyMessage">自己输入回复</label><textarea id="customReplyMessage" name="message" maxlength="240" placeholder="说说你想对她讲的话..." required></textarea><button class="action-button accent" type="submit">发送</button>';
+      form.addEventListener('submit',event=>submitCustomReply(event,id));
+      choices.before(form);
+    };
+    function countReplySignals(message,signals){
+      return signals.reduce((count,signal)=>{
+        const index=message.indexOf(signal);
+        if(index<0)return count;
+        const previous=index>0?message[index-1]:'';
+        return /[不没别未无]/.test(previous)?count:count+1;
+      },0);
+    }
+    function scoreCustomReply(id,message){
+      const profile=customReplyProfiles[id];
+      const warmth=countReplySignals(message,kindReplyWarmth);
+      const hurt=countReplySignals(message,kindReplyHurt);
+      const personalGood=countReplySignals(message,profile.positive);
+      const personalBad=countReplySignals(message,profile.negative);
+      return clamp(Math.min(2,warmth)+Math.min(2,personalGood)*2-Math.min(2,hurt)*3-Math.min(2,personalBad)*3,-5,5);
+    }
+    function buildCustomReply(id,message,delta,context=''){
+      const acknowledgements={haewon:'我记下你刚才说的了',lily:'听你这么说，我很开心',sullyoon:'嗯，我听明白了',bae:'我听到了，就直说吧',jiwoo:'好，我收到啦',kyujin:'嗯嗯，我记住啦'};
+      const excerpt=conversationExcerpt(context||message);
+      if(context)return `“你还想补充「${excerpt}」呀，我认真听着。关于这件事，你最想补充哪一点？”`;
+      if(/[？?]$/.test(message.trim()))return `“你问「${excerpt}」呀。我想认真回答你，不过还想先弄清楚你指的是哪种情况。可以再告诉我一点吗？”`;
+      if(delta<0)return `“我听见你对「${excerpt}」的看法了。我们想法可能不太一样，你愿意告诉我最在意的是哪一点吗？”`;
+      if(delta>0)return `“${acknowledgements[id]}。关于「${excerpt}」，你愿意再多说一点吗？”`;
+      return `“${acknowledgements[id]}。关于「${excerpt}」，你最想先聊哪一部分？”`;
+    }
+    function submitCustomReply(event,id){
+      event.preventDefault();
+      const message=String(new FormData(event.currentTarget).get('message')||'').trim();
+      if(!message){notify('先写下你想说的话。');return}
+      if(state.dailyEventPending||!useAction())return;
+      const person=cast.find(c=>c.id===id);
+      const delta=scoreCustomReply(id,message);
+      const atmosphereDelta=delta>0?1:delta<0?-1:0;
+      const reaction=buildCustomReply(id,message,delta);
+      closeModal();
+      const place=sceneDestinations[conversationDestinations[id]].place;
+      startConversation({kind:'chat',personId:id,title:`和${person.alias}聊聊`,place,playerText:message,reply:reaction,delta,atmo:atmosphereDelta,opening:chatPrompt(person),customReply:true});
+    }
+  </script>
+  <style>
+    .daily-event-note{align-self:center;margin-right:auto;color:var(--muted);font-size:11px}
+    .room-scene.scene-changing{animation:scene-arrive .45s ease}
+    @keyframes scene-arrive{from{opacity:.72;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
+    .resident-mini,.resident-select-portrait,.resident-portrait-large{display:block;overflow:hidden;flex:none;border:1px solid var(--line);background:var(--white)}
+    .resident-mini{width:34px;height:42px;margin-right:8px}
+    .resident-select-portrait{width:48px;height:58px;margin-right:10px}
+    .resident-portrait-large{width:76px;height:94px;margin-right:13px}
+    .resident-mini img,.resident-select-portrait img,.resident-portrait-large img{display:block;width:100%;height:100%;object-fit:cover}
+    .room-scene{min-height:clamp(250px,34vw,390px);background-size:cover;background-repeat:no-repeat}
+    .story-panel{position:relative;border-top:3px solid var(--green);box-shadow:0 12px 34px #26372b12}
+    .story-panel .event-title{font-size:clamp(21px,2.4vw,28px)}
+    .dialogue-speaker{display:flex;align-items:center;gap:12px;margin:14px 0;padding:9px 12px;background:#f2eee5;border-left:3px solid var(--coral);width:max-content;max-width:100%}
+    .dialogue-speaker[hidden]{display:none}
+    .dialogue-speaker img{width:52px;height:58px;object-fit:cover;border:1px solid #d8d4c9}
+    .dialogue-speaker div{display:grid;gap:3px}
+    .dialogue-speaker small{color:var(--muted);font-size:10px;letter-spacing:1px}
+    .dialogue-speaker strong{font:600 16px var(--serif);color:var(--green)}
+    .story-panel .story-copy{padding:4px 0}
+    @media(max-width:600px){.room-scene{min-height:235px}.dialogue-speaker{margin:10px 0}}
+    #relationshipList .meter-top{align-items:center}
+    #relationshipList .meter-top button{flex:1;min-width:0;text-align:left}
+    #modal .choice-list>button{align-items:center;justify-content:flex-start}
+    .modal-head .resident-portrait-large+div{flex:1;min-width:0}
+    @media(max-width:600px){.resident-portrait-large{width:62px;height:78px;margin-right:9px}.modal h2{font-size:21px}}
+  </style>
+  <script>
+    const sceneDestinations={
+      living:{name:'客厅',place:'客厅 · 沙发边',title:'七个人，客厅有点挤。',eyebrow:'LIVING ROOM · EVENING',image:'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=80',position:'center 54%'},
+      kitchen:{name:'厨房',place:'厨房 · 餐桌旁',title:'厨房灯亮着，冰箱门轻轻合上。',eyebrow:'KITCHEN · SHARED MOMENT',image:'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1400&q=80',position:'center 55%'},
+      balcony:{name:'阳台',place:'阳台 · 门边',title:'夜风把屋里的声音吹得很轻。',eyebrow:'BALCONY · AFTER HOURS',image:'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80',position:'center 58%'},
+      bedroom:{name:'房间',place:'房间 · 走廊一侧',title:'门后留着一盏没有关掉的灯。',eyebrow:'ROOM · QUIET HOURS',image:'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1400&q=80',position:'center 55%'},
+      entry:{name:'玄关',place:'玄关 · 鞋柜边',title:'门锁轻响，夜晚又多了一个归来的人。',eyebrow:'ENTRYWAY · COMING HOME',image:'https://images.unsplash.com/photo-1600573472592-401b489a3cdc?auto=format&fit=crop&w=1400&q=80',position:'left 52%'},
+      street:{name:'街角',place:'延南洞 · 便利店附近',title:'延南洞的街灯，把路面照成暖色。',eyebrow:'YEONNAM-DONG · NIGHT WALK',image:'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1400&q=80',position:'center 55%'},
+      cafe:{name:'咖啡馆',place:'延南洞 · 街角咖啡馆',title:'窗边的咖啡凉了一点，话题还没有结束。',eyebrow:'YEONNAM-DONG · CAFE',image:'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=80',position:'center 55%'},
+      dessert:{name:'甜品店',place:'甜品店 · 靠窗座位',title:'刚出炉的甜点，把整个房间都烘暖了。',eyebrow:'DESSERT SHOP · AFTERNOON',image:'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1400&q=80',position:'center 55%'},
+      studio:{name:'排练室',place:'排练室 · 镜子前',title:'音乐停下后，镜子里的人还在深呼吸。',eyebrow:'REHEARSAL STUDIO · NIGHT',image:'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1400&q=80',position:'center 50%'},
+      campus:{name:'校园',place:'大学校园 · 林荫道',title:'下课铃响过，树影落在空下来的长椅旁。',eyebrow:'CAMPUS · LATE AFTERNOON',image:'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1400&q=80',position:'center 55%'},
+      bookstore:{name:'书店',place:'书店 · 靠墙书架旁',title:'纸页翻动的声音，让时间慢了下来。',eyebrow:'BOOKSHOP · QUIET HOURS',image:'https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1400&q=80',position:'center 50%'},
+      riverside:{name:'河边',place:'汉江 · 河边步道',title:'城市灯火映在水面上，晚风刚刚好。',eyebrow:'HANGANG · NIGHT WALK',image:'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80',position:'center 55%'}
+    };
+    const conversationDestinations={haewon:'campus',lily:'studio',sullyoon:'balcony',bae:'street',jiwoo:'bedroom',kyujin:'dessert'};
+    const portraitLooks={
+      haewon:{hair:'#28211f',coat:'#62776a',accent:'#d8c29b',back:'M43 101C33 54 43 22 81 18c39-4 59 23 46 82l-7 43-17-8 4-57-49 5-8 61-17 7z',front:'M45 67C50 36 67 29 83 30c17 1 31 13 34 34-12-9-21-14-34-13-14 0-24 7-38 16z',detail:'<path d="M48 152l18 12-10 23H42z" fill="#e7e0d3"/><path d="M112 152l-18 12 10 23h14z" fill="#e7e0d3"/>'},
+      lily:{hair:'#49302b',coat:'#bb755f',accent:'#e7bd84',back:'M40 101C32 46 47 16 82 18c39 2 53 32 40 80 17 13 17 43 1 53l-8-44-12-45-47 5-7 79-14 5c-13-14-10-37 5-50z',front:'M43 67C48 34 65 25 84 29c17 3 30 17 32 39-14-11-24-16-39-14-12 1-23 7-34 13z',detail:'<path d="M64 138l16 12 16-12 10 8-8 40H62l-8-40z" fill="#f0c7a7"/><circle cx="123" cy="59" r="5" fill="#f0cf92"/>'},
+      sullyoon:{hair:'#211e24',coat:'#718e9c',accent:'#bbd7d8',back:'M42 104C35 47 48 15 82 17c36 2 53 31 40 93l17 66-16 8-26-61-30 2-25 57-16-8 19-70z',front:'M44 66C48 34 65 26 82 27c18 1 31 16 34 39-12-11-23-16-38-14-14 2-23 8-34 14z',detail:'<path d="M68 137q12 11 24 0l13 9-7 40H62l-7-40z" fill="#e6e7df"/><path d="M56 51q26-23 54 0" fill="none" stroke="#bbd7d8" stroke-width="3"/>'},
+      bae:{hair:'#292934',coat:'#6c758f',accent:'#c1a3bd',back:'M42 103C33 53 45 19 82 18c38-1 53 26 39 78l-4 42-15-9 1-49-45 7-4 52-16 5z',front:'M42 70C49 33 66 26 86 28c16 1 29 13 32 31-14-7-24-10-37-8-15 2-25 10-39 19z',detail:'<path d="M66 137l14 14 14-14 14 9-9 40H61l-9-40z" fill="#e4e0e5"/><path d="M107 41l14-11" stroke="#c1a3bd" stroke-width="5" stroke-linecap="round"/>'},
+      jiwoo:{hair:'#28252f',coat:'#758a78',accent:'#d4c9a7',back:'M41 103C34 48 48 17 82 18c38 1 54 29 40 83l14 54-16 9-20-57H63l-21 57-16-9z',front:'M43 69C47 34 64 27 82 28c19 1 31 16 35 38-14-12-24-16-39-14-14 1-24 9-35 17z',detail:'<path d="M47 61a35 35 0 0 1 70 0" fill="none" stroke="#d4c9a7" stroke-width="5"/><rect x="43" y="59" width="11" height="20" rx="5" fill="#d4c9a7"/><rect x="110" y="59" width="11" height="20" rx="5" fill="#d4c9a7"/><path d="M64 140l16 11 16-11 13 8-8 38H59l-8-38z" fill="#ddd9c9"/>'},
+      kyujin:{hair:'#342824',coat:'#bd8290',accent:'#f0d6a5',back:'M43 103C34 50 48 17 82 18c38 1 54 30 40 82l-7 41-15-9 3-50-43 8-5 51-16 5z M108 32c20-9 34 2 29 20-4 13-17 19-27 14z',front:'M44 68C48 34 65 26 82 28c18 1 31 15 34 37-13-10-24-15-38-13-14 1-23 8-34 16z',detail:'<path d="M67 137l13 13 13-13 15 10-9 39H61l-9-39z" fill="#f4e5cf"/><path d="M75 154h10v18H75z" fill="#bd8290"/><circle cx="116" cy="42" r="4" fill="#f0d6a5"/>'}
+    };
+    let activeSceneKey='';
+    function resolveSceneKey(location){
+      const value=String(location||'');
+      if(/厨房|早餐|餐桌/.test(value))return 'kitchen';
+      if(/阳台/.test(value))return 'balcony';
+      if(/卧室|房间|床/.test(value))return 'bedroom';
+      if(/玄关|走廊/.test(value))return 'entry';
+      if(/甜品店|烘焙店/.test(value))return 'dessert';
+      if(/咖啡馆|咖啡店/.test(value))return 'cafe';
+      if(/排练室|录音棚|摄影棚|工作室/.test(value))return 'studio';
+      if(/大学|校园|课堂/.test(value))return 'campus';
+      if(/书店|图书馆/.test(value))return 'bookstore';
+      if(/河边|汉江|河岸/.test(value))return 'riverside';
+      if(/便利店|延南洞|街角|咖啡/.test(value))return 'street';
+      return 'living';
+    }
+    function portraitMarkup(id){
+      const person=cast.find(c=>c.id===id);
+      return `<img src="${person.image}" alt="${person.alias}">`;
+    }
+    function addPortrait(container,id,className){
+      if(!container||container.querySelector(`.${className}`))return;
+      const portrait=document.createElement('span');
+      portrait.className=className;
+      portrait.innerHTML=portraitMarkup(id);
+      container.prepend(portrait);
+    }
+    function updateSceneVisual(){
+      if(!state)return;
+      const key=resolveSceneKey(state.location);
+      const scene=sceneDestinations[key];
+      const panel=document.querySelector('.room-scene');
+      if(panel&&activeSceneKey!==key){
+        panel.style.backgroundImage=`linear-gradient(90deg,rgba(26,47,38,.70),rgba(26,47,38,.12)),url('${scene.image}')`;
+        panel.style.backgroundPosition=scene.position;
+        panel.classList.remove('scene-changing');
+        void panel.offsetWidth;
+        panel.classList.add('scene-changing');
+        setTimeout(()=>panel.classList.remove('scene-changing'),500);
+        activeSceneKey=key;
+      }
+      const label=document.getElementById('locationLabel');
+      if(label)label.textContent=state.location;
+      const title=document.getElementById('sceneTitle');
+      if(title)title.textContent=scene.title;
+      const eyebrow=document.getElementById('sceneEyebrow');
+      if(eyebrow)eyebrow.textContent=scene.eyebrow;
+    }
+    function addResidentPortraits(){
+      document.querySelectorAll('#relationshipList .meter-row').forEach((row,index)=>{
+        const person=cast[index];
+        if(person)addPortrait(row.querySelector('.meter-top'),person.id,'resident-mini');
+      });
+    }
+    const renderGameWithScenes=renderGame;
+    renderGame=function(){
+      renderGameWithScenes();
+      if(!state)return;
+      updateSceneVisual();
+      addResidentPortraits();
+    };
+    const openChatWithPortraits=openChat;
+    openChat=function(id){
+      if(id&&state&&state.roomChosen){
+        if(state.dailyEventPending){notify('先回应今天的随机日常，再继续其他互动。');return}
+        const destination=sceneDestinations[conversationDestinations[id]];
+        if(destination&&state.actions>0){state.location=destination.place;save();updateSceneVisual()}
+      }
+      openChatWithPortraits(id);
+      const list=document.querySelector('#modal .choice-list');
+      if(!id){
+        if(list)list.querySelectorAll('button').forEach((button,index)=>addPortrait(button,cast[index]?.id,'resident-select-portrait'));
+        return;
+      }
+      const person=cast.find(c=>c.id===id);
+      const header=document.querySelector('#modal .modal-head');
+      if(!person||!header||header.querySelector('.resident-portrait-large'))return;
+      const portrait=document.createElement('span');
+      portrait.className='resident-portrait-large';
+      portrait.innerHTML=portraitMarkup(id);
+      header.prepend(portrait);
+    };
+    if(state)renderGame();
+    if(state&&state.roomChosen){
+      if(state.conversation)renderConversation(state.conversation);
+      else if(state.dailyEventPending&&state.dailyEvent)renderDailyEvent(state.dailyEvent);
+    }
+  </script>
+</body>
+</html>
